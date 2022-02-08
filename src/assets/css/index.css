@@ -1,0 +1,808 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wavy {
+    text-decoration-style: wavy;
+  }
+}
+
+@font-face {
+  font-family: "Helvetica";
+}
+
+:root {
+  --size-ref-x: 300px;
+}
+
+.blog-image.odd{
+  @apply left-2/3 mt-4;
+}
+
+.blog-image.even{
+  @apply right-1/3 mt-4;
+}
+
+#hiding-parent {
+  width: 10rem;
+  height: 10rem;
+  background-color: #ababab;
+}
+
+#hiding-parent .hidden-child{
+  visibility: visible;
+  @apply max-h-full mt-0;
+}
+#hiding-parent:hover .hidden-child{
+  visibility: visible;
+  @apply max-h-full mt-0;
+}
+
+#hiding-parent .hidden-img{
+  visibility: hidden;
+  @apply max-h-0;
+}
+#hiding-parent:hover .hidden-img{
+  visibility: visible;
+ @apply max-h-32;
+}
+
+.menu {
+  background-image: url("../icons/menu-icon.svg");
+  width: 1.6rem;
+  height: 1.6rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+p{line-height: 1.25rem;}
+
+.tag-blog p, .tag-blog li, .tag-blog ul, .tag-blog dl, .tag-blog blockquote, .tag-blog ol{
+  @apply !font-normal;
+
+}
+.tag-blog h1, .tag-blog h2, .tag-blog h3, .tag-blog h4, .tag-blog h5{
+  @apply font-sans;
+}
+
+a:hover{
+  font-style: oblique;
+}
+
+.vh-2-3 {
+  height: 66vh;
+}
+
+.text-2-3-vh {
+  font-size: 60vh;
+}
+
+.no-underline-important {
+  text-decoration: none !important;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "case";
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+.tag {
+  @apply px-1 py-0.5 leading-none border border-black md:border-2 md:ml-[-2px] ml-[-1px] ml-[-1px] uppercase font-bold text-[0.725rem];
+}
+.tag:hover {
+  @apply bg-black text-white;
+}
+/*
+.home{
+  background-image: url("../face.svg");
+  background-repeat: no-repeat;
+  padding-bottom: 1rem;
+}*/
+.home a, .home a:hover, .home .nav-current{
+  color: transparent;
+  text-shadow: none;
+}
+
+.nav-current {
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 3px black;
+}
+
+#size-ref{}
+
+#nav-v{
+  position: absolute;
+  margin-right: -100%;
+  transform: rotate(270deg) translate(0, 2rem);
+  transform-origin: left bottom;
+  width: 100vh;
+  bottom: 1.8rem;
+}
+#postNavigation{
+  position: fixed;
+  margin-left: 100%;
+  transform: rotate(270deg);
+  transform-origin: left bottom;
+  width: 100vh;
+  background: white;
+}
+
+img{
+@apply w-full h-full;
+}
+
+.landscape{
+  max-width: 100vw;
+}
+.portrait{
+  height: 100vh;
+}
+
+.blog-bottom-margin{
+  margin-bottom: calc(100vh - var(--size-ref-x) + 1.77rem );
+}
+
+#thumb-size{
+  height: calc(var(--size-ref-x)/2 + 1.73rem);
+  min-height: 30vh;
+}/*
+#thumb-size.about-img{
+  height: calc(var(--size-ref-x) - 1.8rem + 2px);
+}*/
+
+@screen sm {
+  html {
+    font-size: 26px;
+  }}
+
+@screen md {
+  html {
+    font-size: 32px;
+  }
+  .blog-bottom-margin{
+    margin-bottom: calc(100vh - var(--size-ref-x) + 1.71rem );
+  }
+  #thumb-size{
+    height: calc(var(--size-ref-x) - 1.8rem + 2px);
+    min-height: 30vh;
+  }
+  .landscape{
+    max-height: 100vh;
+    width: 100vw;
+  }
+  .portrait{
+    width: auto;
+    max-height:100vh;
+  }
+  .nav-current {
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 8px black;
+  }
+  #postNavigation{
+    position: fixed;
+    transform: none;
+    transform-origin: unset;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .kg-width-regular, kg.width-wide, .kg-width-full img {
+    height: calc(100vh - 1.8rem);
+    object-fit: cover;
+  }
+  #hiding-parent .hidden-child{
+    visibility: hidden;
+    @apply max-h-0 mt-[-0.3rem];
+  }
+ /* #thumb-size{
+    height: calc( 100vh - var(--size-ref-x) - 1.8rem);
+  }*/
+}
+
+@screen xl {
+  html {
+    font-size: 44px;
+  }
+  #thumb-size{
+    height: calc(var(--size-ref-x) + 3.5rem);
+    min-height: 30vh;
+  }
+}
+
+@media (orientation: landscape) {
+  #postNavigation{
+    position: fixed;
+    transform: none;
+    transform-origin: unset;
+    width: 100%;
+    margin-left: 0;
+  }
+  .gh-canvas{
+    width: 100% !important;
+  }
+  .portrait{
+    height: 100vh;
+    width: auto;
+  }
+  .landscape{
+    max-height: 100vh;
+  }
+  /*#nav-p-items :last-child{
+    border-left: none;
+    flex-grow: 1;
+  }
+  #nav-filler{
+    border-right: none;
+    width:0;
+    padding:0;
+    margin:0;
+  }*/
+}
+#nav-p-items :last-child{
+  border-left: none;
+  flex-grow: 1;
+}
+#nav-p-items :last-child h1{
+  text-align: right;
+}
+
+#nav-h-items :first-child{
+  border-left: none;
+  flex-grow: 1;
+}
+#nav-h-items :first-child h1{
+  text-align: left;
+}
+
+@media (orientation: portrait) {
+
+}
+
+/*
+@screen lg {
+  html {
+    font-size: 64px;
+  }
+  .nav-current {
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 12px black;
+  }
+}*/
+
+
+/**
+ Tailwind CSS layers
+ */
+@layer base {
+  h1 {
+    @apply text-lg font-bold;
+  }
+  h2, h3, h4 {
+    @apply text-lg font-bold uppercase;
+  }
+  /*h3 {
+    @apply text-base font-bold;
+  }*/
+}
+
+/* GHOST
+/* ---------------------------------------------------------- */
+
+/* -------- */
+
+/* Content grid
+/* ---------------------------------------------------------- */
+
+/* Canvas creates a multi-column, centered grid which the post
+is laid out on top of. Canvas just defines the grid, we don't
+use it for applying any other styles. */
+
+.gh-canvas {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 1.8rem);
+  @apply md:w-full;
+}
+
+.gh-canvas > * {
+  grid-column: full-start / full-end;
+}
+
+.kg-width-wide {
+  grid-column: full-start / full-end;
+}
+.kg-width-regular, kg.width-wide, .kg-width-full img {
+  height: 100vh;
+  object-fit: cover;
+}
+.kg-width-regular, .kg-width-wide,.kg-width-full {
+  /*grid-column: full-start / full-end;*/
+}
+
+/* Content
+/* ---------------------------------------------------------- */
+
+/* Content refers to styling all page and post content that is
+created within the Ghost editor. The main content handles
+headings, text, images and lists. We deal with cards lower down. */
+
+/* Default vertical spacing */
+.gh-content > * + * {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* [id] represents all headings h1-h6, reset all margins */
+.gh-content > [id] {
+  @apply text-black leading-7 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
+}
+
+/* Add back a top margin to all headings, unless a heading
+is the very first element in the post content */
+.gh-content > [id]:not(:first-child) {
+  margin-top: 4rem;
+}
+
+/* Add a small margin between a heading and anything after it */
+.gh-content > [id] + * {
+  margin-top: 1rem !important;
+}
+
+/* A larger margin before/after HRs and blockquotes */
+.gh-content > hr,
+.gh-content > blockquote {
+  position: relative;
+  margin-top: 6vmin;
+}
+.gh-content > hr + *,
+.gh-content > blockquote + * {
+  margin-top: 6vmin !important;
+}
+
+/* Now the content typography styles */
+.gh-content a {
+  text-decoration: underline;
+  word-break: break-word;
+  @apply text-base font-bold;
+}
+
+.gh-content > blockquote,
+.gh-content > ol,
+.gh-content > ul,
+.gh-content > dl,
+.gh-content > p,
+.gh-content > a{
+  font-weight: 600;
+  line-height: 1.25em;
+ /* text-indent: 1rem;*/
+  @apply md:ml-9 ml-4 md:mr-32 mr-6 mt-4;
+}
+
+
+.gh-content > ul,
+.gh-content > ol,
+.gh-content > dl {
+  padding-left: 0.85em;
+  list-style: initial;
+}
+
+.gh-content > blockquote {
+  position: relative;
+  font-style: italic;
+  padding: 0;
+}
+
+.gh-content > blockquote::before {
+  content: "";
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  bottom: 0;
+  width: 0.3rem;
+}
+
+.gh-content :not(pre) > code {
+  vertical-align: middle;
+  padding: 0.15em 0.4em 0.15em;
+  border: #e1eaef 1px solid;
+  font-weight: 400 !important;
+  line-height: 1em;
+  color: #15171A;
+  background: #f0f6f9;
+  border-radius: 0.25em;
+}
+
+.gh-content pre {
+  overflow: auto;
+  padding: 16px 20px;
+  @apply bg-gray-800 text-gray-200 text-base rounded;
+  line-height: 1.25em;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+}
+
+@media (max-width: 650px) {
+  .gh-content blockquote::before {
+    left: -4vmin;
+  }
+}
+
+/* Cards
+/* ---------------------------------------------------------- */
+
+/* Cards are dynamic blocks of content which appear within Ghost
+posts, for example: embedded videos, tweets, galleries, or
+specially styled bookmark links. We add extra styling here to
+make sure they look good, and are given a bit of extra spacing. */
+
+/* Add extra margin before/after any cards,
+except for when immediately preceeded by a heading */
+.gh-content :not(.kg-card):not([id]) + .kg-card {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.gh-content .kg-card + :not(.kg-card) {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* This keeps small embeds centered */
+.kg-embed-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.kg-image-card{
+  display: flex;
+  justify-content: center;
+}
+
+/* This keeps small iamges centered */
+.kg-image-card img {
+  margin: 6rem 0 0.5rem 0;
+  /*height: calc(66.6vmin - 1.8rem);*/
+  object-fit: cover;
+}
+
+
+/* File Cards
+/* ---------------------------------------------------------- */
+.kg-file-card, .kg-file-card a.kg-file-card-container, a.kg-file-card-container{
+  border: 0px transparent!important;
+  padding: 0!important;
+}
+.kg-file-card-contents{
+  @apply md:ml-9 ml-4 justify-start;
+}
+.kg-file-card-title{
+  font-size: 1rem;
+  text-transform: uppercase;
+  @apply leading-4;
+}
+.kg-file-card-caption{}
+.kg-file-card-filename{
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: underline black;
+}
+.kg-file-card-icon{
+  display: none;
+}
+
+.kg-file-card-filesize::before {
+  display: inline-block;
+  content: "–";
+  margin-right: 0.325rem;
+}
+.kg-file-card-filesize {
+  display: inline-block;
+  font-size: 1rem;
+  opacity: 1;
+  font-weight: bold;
+  color: black;
+  margin-left: 0.1rem;
+  word-spacing: -0.15rem !important;
+}
+
+/* Captions */
+figcaption {
+  font-weight: 600;
+  line-height: 1.25em;
+  /* text-indent: 1rem;*/
+  @apply md:ml-9 ml-4 md:mr-32 mr-6 mt-4 inline align-bottom;
+}
+
+/* Highly specific styles for traditional Instagram embeds */
+iframe.instagram-media {
+  margin-top: 6vmin !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 0 !important;
+}
+
+iframe.instagram-media + script + :not([id]) {
+  margin-top: 6vmin;
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 1.8rem);
+}
+
+.kg-embed-card{
+  height: 100vh;
+}
+
+
+/* Galleries
+/* ---------------------------------------------------------- */
+
+/* When there galleries are mixed with images, reduce margin
+between them, so it looks like 1 big gallery */
+.kg-image-card + .kg-gallery-card,
+.kg-gallery-card + .kg-image-card,
+.kg-gallery-card + .kg-gallery-card {
+  margin-top: 0.75em;
+}
+
+.kg-image-card.kg-card-hascaption + .kg-gallery-card,
+.kg-gallery-card.kg-card-hascaption + .kg-image-card,
+.kg-gallery-card.kg-card-hascaption + .kg-gallery-card {
+  margin-top: 1.75em;
+}
+
+.kg-gallery-container {
+  position: relative;
+}
+
+.kg-gallery-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.kg-gallery-image img {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+  margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+  margin: 0 0 0 0.75em;
+}
+
+/* Bookmark Cards
+/* ---------------------------------------------------------- */
+
+/* These are styled links with structured data, similar to a
+Twitter card. These styles roughly match what you see in the
+Ghost editor. */
+
+.kg-bookmark-card,
+.kg-bookmark-card * {
+  box-sizing: border-box;
+}
+
+.kg-bookmark-card,
+.kg-bookmark-publisher {
+  position: relative;
+  width: 100%;
+}
+
+.kg-bookmark-card a.kg-bookmark-container,
+.kg-bookmark-card a.kg-bookmark-container:hover {
+  display: flex;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid rgb(124 139 154);
+  overflow: hidden;
+  color: inherit;
+}
+
+.kg-bookmark-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.kg-bookmark-title {
+  font-size: 1.5rem;
+  line-height: 1.4em;
+  font-weight: 600;
+}
+
+.kg-bookmark-description {
+  display: -webkit-box;
+  margin-top: 3px;
+  font-weight: 400;
+  overflow-y: hidden;
+  opacity: 0.7;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.kg-bookmark-metadata {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  width: 100%;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.kg-bookmark-metadata > *:not(img) {
+  opacity: 0.7;
+}
+
+.kg-bookmark-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.kg-bookmark-author,
+.kg-bookmark-publisher {
+  display: inline;
+}
+
+.kg-bookmark-publisher {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 240px;
+  white-space: nowrap;
+  display: block;
+  line-height: 1.65em;
+}
+
+.kg-bookmark-metadata > span:nth-of-type(2) {
+  font-weight: 400;
+}
+
+.kg-bookmark-metadata > span:nth-of-type(2):before {
+  content: "•";
+  margin: 0 6px;
+}
+
+.kg-bookmark-metadata > span:last-of-type {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kg-bookmark-thumbnail {
+  position: relative;
+  flex-grow: 1;
+  min-width: 33%;
+}
+
+.kg-bookmark-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+
+/* Card captions
+/* ---------------------------------------------------------- */
+
+.kg-card-hascaption{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: inherit;
+}
+
+.kg-card-hascaption img {
+  grid-column: 1 / -1;
+  /* width: 66.6%;*/
+  height: calc(75vh - 1.8rem);
+}
+
+.kg-width-full.kg-card-hascaption figcaption {
+
+}
+
+.article-comments {
+  margin: 6vmin 0 0 0;
+}
+
+/* -----old------ */
+
+.footnotes-sep {
+  margin-bottom: 30px;
+}
+
+.footnotes {
+  font-size: 1.5rem;
+}
+
+.footnotes p {
+  margin: 0;
+}
+
+.footnote-backref {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* Tables */
+.post-full-content table {
+  @apply font-sans;
+  display: inline-block;
+  overflow-x: auto;
+  margin: 0.5em 0 2.5em;
+  max-width: 100%;
+  width: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.post-full-content table {
+  -webkit-overflow-scrolling: touch;
+  background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+  background-attachment: scroll, scroll;
+  background-size: 10px 100%, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:first-child {
+  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:last-child {
+  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-position: 100% 0;
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table th {
+  color: var(--color-darkgrey);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: color-mod(var(--color-wash) l(+4%));
+}
+
+.post-full-content table th,
+.post-full-content table td {
+  padding: 6px 12px;
+  border: color-mod(var(--color-wash) l(-1%) s(-5%)) 1px solid;
+}

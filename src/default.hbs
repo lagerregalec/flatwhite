@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+<head>
+    <title>{{meta_title}}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+
+    {{!-- Dynamic header content for SEO, meta tags, code injection etc --}}
+    {{ghost_head}}
+</head>
+
+<script>
+  var max_pages = parseInt('{{pagination.pages}}');
+</script>
+
+<body class="{{body_class}}">
+    {{!-- Navigation bar --}}
+    <header class="block h-0">
+        {{> "header"}}
+    </header>
+    {{!-- End Navbar --}}
+
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+
+    {{!-- Footer content goes here --}}
+    {{!-- End of footer --}}
+
+    {{!-- Dynamic footer content from code injection etc --}}
+    {{ghost_foot}}
+</body>
+
+</html>

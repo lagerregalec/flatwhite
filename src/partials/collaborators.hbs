@@ -1,0 +1,17 @@
+<div class="mb-8">
+  {{#if authors}}
+    {{#foreach authors from="2"}}
+      {{#if @first}}<p class="font-bold">Collaboration</p>{{/if}}
+      {{~#if website~}}
+        <a href="{{website}}" title="{{name}}" class="author author-{{id}} {{slug}} underline">
+          {{~name~}}
+        </a>
+      {{~else~}}
+        {{~name~}}
+      {{/if}}
+      {{~^if @last~}}
+        ,
+      {{/if}}
+    {{/foreach}}
+  {{/if}}
+</div>

@@ -1,0 +1,80 @@
+{
+  "name": "alec",
+  "version": "1.0.0",
+  "description": "a ghost cms portfolio theme",
+  "keywords": [
+    "ghost-theme"
+  ],
+  "engines": {
+    "ghost": ">=4.0.0",
+    "ghost-api": "v4"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode=development --open",
+    "postversion": "git push && git push --tags",
+    "build-only": "export NODE_ENV=production && webpack",
+    "build": "export NODE_ENV=production && webpack && zip -r porto.zip dist/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wollio/porto.git"
+  },
+  "author": {
+    "name": "Alec Nikolov",
+    "email": "allyomalley@hotmail.de",
+    "url": "https://www.alecnikolov.ch/"
+  },
+  "config": {
+    "posts_per_page": 25,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wollio/porto/issues"
+  },
+  "homepage": "https://github.com/wollio/porto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "handlebars-loader": "^1.7.1",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^3.0.0",
+    "tailwindcss": "^2.2.4",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-livereload-plugin": "^3.0.1"
+  },
+  "dependencies": {
+    "fslightbox": "^3.3.0-2"
+  }
+}

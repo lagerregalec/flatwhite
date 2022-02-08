@@ -1,0 +1,123 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+<script>
+  var getUrl = window.location;
+  var url_parent = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+
+  $(window).on('load',function(){
+    document.getElementById("back-button").href = url_parent;
+
+    $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
+      if ($(this).width()/$(this).height() >= 1) {
+        $(this).addClass('landscape');
+      } else {
+        $(this).addClass('portrait');
+      }
+    });
+  });
+</script>
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the post --}}
+  <nav id="postNavigation" class="fixed md:left-0 bottom-0 md:right-0 h-[2rem] sm:h-[1.9rem] 2xl:h-[1.8rem] w-full overscroll-none bg-white z-50">
+    <div id="nav-p" class="fixed w-full flex flex-row justify-end">
+      <ul id="nav-p-items" class="flex flex-row justify-start no-underline list-none m-0 p-0 w-full">
+          <li class="border border-black md:border-2 md:mr-[-2px] md:ml-[-2px] mr-[-1px] mb-[-1px] ml-[-1px] uppercase">
+            <a id="back-button" class="h-full w-full">
+            <div id="arrow-wrapper" class="flex items-center justify-center h-full px-1 py-[0.4rem] d-inline-block">
+              <div class="w-[1.4rem] mt-[-1px] md:mt-[-2px]" >
+                <svg  height="100%" viewBox="0 0 57 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21.5 0L0 23.5L21.5 47L28 41L16 28H57V19H16L28 6L21.5 0Z" fill="black"/>
+                </svg>
+              </div>
+            </div>
+            </a>
+          </li>
+        <li class="px-1 py-0.5 border border-black md:border-2 md:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
+          <h1 class="uppercase text-lg font-bold leading-none">
+            {{date published_at format="YYYY"}}
+          </h1>
+        </li>
+          <li class="px-1 py-0.5 border border-black md:border-2 md:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
+            <h1 class="uppercase text-lg font-bold leading-none whitespace-nowrap">
+              {{title}}
+            </h1>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <article class="article {{post_class}} {{#has tag="#portfolio"}}font-sans{{else}}font-serif{{/has}} md:mb-16 ml-0 mb-0 flex flex-col rot-180">
+
+    <header class="article-header gh-canvas">
+
+      {{#if feature_image}}
+        <figure class="article-image kg-width-full flex flex-row">
+          {{!-- This is a responsive image, it loads different sizes depending on device
+          https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+          <img
+                  srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                  sizes="(min-width: 1400px) 1400px, 92vw"
+                  src="{{img_url feature_image size="xl"}}"
+                  alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                  class="object-cover mr-0"
+                  style="width: 100%!important;"
+          />
+          {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+          {{/if}}
+        </figure>
+      {{/if}}
+      {{!--
+            <div class="mb-8 {{#if feature_image}} mt-8 {{else}} mt-32{{/if}}">
+              {{#if tags}}
+                <ul class="flex flex-row text-sm text-gray-500 mb-3">
+                  {{#foreach tags}}
+                    <li class="mr-4">
+                      <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                    </li>
+                  {{/foreach}}
+                </ul>
+              {{/if}}
+
+              <h1 class="article-title text-5xl mb-3">{{title}}</h1>
+
+              {{#if custom_excerpt}}
+                <p class="article-excerpt">{{custom_excerpt}}</p>
+              {{/if}}
+            </div>
+
+            {{#has tag="#portfolio"}}
+              {{> "collaborators"}}
+            {{/has}}
+      --}}
+          </header>
+
+          <section class="gh-content gh-canvas mt-8 rotate-0">
+            {{content}}
+          </section>
+
+    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-9 md:pr-9 pr-32 mb-9">
+      <div>
+    {{#next_post in="primary_tag"}}
+      <a href="{{url}}" class="uppercase">Prev</a>
+    {{/next_post}}
+      </div>
+      <div class=" !mt-0">
+    {{#prev_post in="primary_tag"}}
+      <a id="next-post" href="{{url}}" class="uppercase">Next</a>
+    {{/prev_post}}
+      </div>
+    </section>
+          {{!--
+          <section class="article-comments gh-canvas">
+              If you want to embed comments, this is a good place to paste your code!
+          </section>
+          --}}
+  </article>
+{{/post}}

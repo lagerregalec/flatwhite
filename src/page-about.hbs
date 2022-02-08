@@ -1,0 +1,94 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+<script>
+  let root = document.documentElement;
+
+  window.addEventListener("load", () => {
+    clientWidth = document.getElementById('size-ref').clientWidth;
+    root.style.setProperty('--size-ref-x', clientWidth + "px");
+  });
+  window.addEventListener('resize', () => {
+    clientWidth = document.getElementById('size-ref').clientWidth;
+    root.style.setProperty('--size-ref-x', clientWidth + "px");
+  });
+</script>
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the post --}}
+
+  <section class="article {{post_class}} flex flex-col mr-[1.8rem] font-sans h-screen">
+
+    {{#if feature_image}}
+      <figure class="article-image flex flex-grow-1" id="thumb-size">
+        {{!-- This is a responsive image, it loads different sizes depending on device
+        https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+        <img
+                class="about-img rounded w-full min-h-max object-cover "
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(min-width: 1400px) 1400px, 92vw"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        />
+        {{#if feature_image_caption}}
+          <figcaption>{{feature_image_caption}}</figcaption>
+        {{/if}}
+      </figure>
+    {{/if}}
+
+    <div class="flex flex-col mb-8 mt-8 mb-1 pl-4">
+      <h1 class="article-title leading-none">{{title}}</h1>
+
+      {{#if custom_excerpt}}
+        <p class="article-excerpt">{{custom_excerpt}}</p>
+      {{/if}}
+
+      <section class="gh-content mt-[-0.75rem] md:ml-[-2.25rem] ml-[-0.9rem]">
+        {{content}}
+      </section>
+
+      <!--table class="mt-12">
+        <tr>
+          <td class="text-sm"><b>Since Aug 2019</b></td>
+          <td>Interaction Design Bachelor at <a href="https://www.zhdk.ch">Zurich University of the Arts</a></td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Since Dec 2017</b></td>
+          <td>Application Engineer at <a href="https://www.umana.ch/">umana e-health AG</a></td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Nov 2018 – June 2019</b></td>
+          <td>compulsory community service as a care assistant at Inselspital, University Hospital Bern in the Neuro-IMC department</td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Aug 2017 – July 2018</b></td>
+          <td>Federal Vocational Baccalaureate, Langenthal</td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Apr 2017 – Aug 2017</b></td>
+          <td>Travel in South-East Asia</td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Aug 2016 – Mai 2017</b></td>
+          <td>Webdeveloper at PostFinance AG, Zofingen</td>
+        </tr>
+
+        <tr>
+          <td class="text-sm"><b>Aug 2012 – July 2016</b></td>
+          <td>Apprenticeship as computer scientist at Post CH AG, Bern</td>
+        </tr>
+      </table-->
+    </div>
+
+
+  </section>
+{{/post}}
