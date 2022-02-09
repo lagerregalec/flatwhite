@@ -14,11 +14,11 @@
     "start": "webpack serve --mode=development --open",
     "postversion": "git push && git push --tags",
     "build-only": "export NODE_ENV=production && webpack",
-    "build": "export NODE_ENV=production && webpack && zip -r porto.zip dist/**"
+    "build": "export NODE_ENV=production && webpack && zip -r flatwhite.zip dist/**"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wollio/porto.git"
+    "url": "git+https://github.com/lagerregalec/flatwhite.git"
   },
   "author": {
     "name": "Alec Nikolov",
@@ -50,9 +50,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wollio/porto/issues"
+    "url": "https://github.com/lagerregalec/flatwhite/issues"
   },
-  "homepage": "https://github.com/wollio/porto#readme",
+  "homepage": "https://github.com/lagerregalec/flatwhite#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",

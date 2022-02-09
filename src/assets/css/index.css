@@ -45,7 +45,7 @@
 }
 #hiding-parent:hover .hidden-img{
   visibility: visible;
- @apply max-h-32;
+  @apply max-h-32;
 }
 
 .menu {
@@ -142,7 +142,7 @@ html {
 }
 
 img{
-@apply w-full h-full;
+  @apply w-full h-full;
 }
 
 .landscape{
@@ -208,9 +208,9 @@ img{
     visibility: hidden;
     @apply max-h-0 mt-[-0.3rem];
   }
- /* #thumb-size{
-    height: calc( 100vh - var(--size-ref-x) - 1.8rem);
-  }*/
+  /* #thumb-size{
+     height: calc( 100vh - var(--size-ref-x) - 1.8rem);
+   }*/
 }
 
 @screen xl {
@@ -351,6 +351,14 @@ headings, text, images and lists. We deal with cards lower down. */
   @apply text-black leading-7 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
 }
 
+.gh-content > h3 {
+  @apply text-[1rem] !leading-5 !mt-8;
+}
+
+ .gh-content h2 + .gh content h3 {
+  @apply !mt-0;
+}
+
 /* Add back a top margin to all headings, unless a heading
 is the very first element in the post content */
 .gh-content > [id]:not(:first-child) {
@@ -388,7 +396,7 @@ is the very first element in the post content */
 .gh-content > a{
   font-weight: 600;
   line-height: 1.25em;
- /* text-indent: 1rem;*/
+  /* text-indent: 1rem;*/
   @apply md:ml-9 ml-4 md:mr-32 mr-6 mt-4;
 }
 
@@ -518,6 +526,20 @@ except for when immediately preceeded by a heading */
   margin-left: 0.1rem;
   word-spacing: -0.15rem !important;
 }
+
+.kg-callout-card {
+  display: flex;
+  border-radius: 0px;
+  background: white;
+  @apply text-black leading-7 pt-4 pl-4 md:pr-32 pr-8 md:ml-9 ml-4 mr-[-2px] mb-12;
+}
+
+.kg-callout-card-grey {
+  background: white;
+  @apply border md:border-2 border-black;
+}
+
+
 
 /* Captions */
 figcaption {
