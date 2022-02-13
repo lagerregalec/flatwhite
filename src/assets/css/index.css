@@ -31,17 +31,17 @@
 }
 
 #hiding-parent .hidden-child{
-  visibility: visible;
+  opacity: 1;
   @apply max-h-full mt-0;
 }
 #hiding-parent:hover .hidden-child{
-  visibility: visible;
-  @apply max-h-full mt-0;
+  opacity: 1;
+  @apply max-h-64 mt-0;
 }
 
 #hiding-parent .hidden-img{
   visibility: hidden;
-  @apply max-h-0;
+  @apply max-h-0 z-50;
 }
 #hiding-parent:hover .hidden-img{
   visibility: visible;
@@ -200,12 +200,20 @@ img{
     margin-left: 0;
   }
 
-  .kg-width-regular, kg.width-wide, .kg-width-full img {
+  .kg-width-regular, .kg.width-wide, .kg-width-full img {
     height: calc(100vh - 1.8rem);
     object-fit: cover;
   }
   #hiding-parent .hidden-child{
-    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: .35s;
+    -moz-transition:  .35s;
+    -ms-transition:  .35s;
+    -o-transition:  .35s;
+    transition:  .35s;
+    animation-timing-function: ease-out;
+    max-height: 0;
     @apply max-h-0 mt-[-0.3rem];
   }
   /* #thumb-size{
@@ -325,7 +333,7 @@ use it for applying any other styles. */
 .kg-width-wide {
   grid-column: full-start / full-end;
 }
-.kg-width-regular, kg.width-wide, .kg-width-full img {
+.kg-width-regular, .kg.width-wide, .kg-width-full img {
   height: 100vh;
   object-fit: cover;
 }
