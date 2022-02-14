@@ -66,6 +66,10 @@ p{line-height: 1.25rem;}
   @apply font-sans;
 }
 
+.active-tag{
+  @apply bg-black text-white;
+}
+
 a:hover{
   font-style: oblique;
 }
