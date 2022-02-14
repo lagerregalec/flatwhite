@@ -7,11 +7,13 @@ into the {body} of the default.hbs template --}}
   let root = document.documentElement;
 
   var url_slug =  window.location.pathname.split('/')[2];
-  console.log("hey");
+  var url_parent = window.location.protocol + "//" + window.location.host + "/blog/";
+
+  console.log(url_parent);
   window.addEventListener("load", () => {
     clientWidth = document.getElementById('size-ref').clientWidth;
     root.style.setProperty('--size-ref-x', clientWidth + "px");
-      $('.' + url_slug).addClass('active-tag');
+      $('.' + url_slug).addClass('active-tag').attr('href', url_parent);
     console.log('.' + url_slug);
 
   });
