@@ -8,14 +8,10 @@ into the {body} of the default.hbs template --}}
 
   var url_slug =  window.location.pathname.split('/')[2];
   var url_parent = window.location.protocol + "//" + window.location.host + "/blog/";
-
-  console.log(url_parent);
   window.addEventListener("load", () => {
     clientWidth = document.getElementById('size-ref').clientWidth;
     root.style.setProperty('--size-ref-x', clientWidth + "px");
-      $('.' + url_slug).addClass('active-tag').attr('href', url_parent);
-    console.log('.' + url_slug);
-
+    $('.' + url_slug).addClass('active-tag').attr('href', url_parent);
   });
 </script>
 <main id="site-main">
@@ -33,7 +29,7 @@ into the {body} of the default.hbs template --}}
                     <ul class="flex flex-grow-1 justify-end">
                       {{#foreach tags}}
                         <li class="m-0 flex flex-col justify-start">
-                          <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}} {{#match slug "=" "url_slug"}} bg-black text-white{{/match}}">{{name}}</a>
+                          <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
                         </li>
                       {{/foreach}}
                     </ul>

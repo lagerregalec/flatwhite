@@ -6,6 +6,11 @@ into the {body} of the default.hbs template --}}
   let clientWidth;
   let root = document.documentElement;
 
+  var url_slug =  window.location.pathname.split('/')[2];
+  var url_parent = window.location.protocol + "//" + window.location.host + "/ba/";
+  console.log(url_parent);
+  $('.' + url_slug).addClass('active-tag').attr('href', url_parent);
+
   window.addEventListener("load", () => {
     clientWidth = document.getElementById('size-ref').clientWidth;
     root.style.setProperty('--size-ref-x', clientWidth + "px");
@@ -19,7 +24,7 @@ into the {body} of the default.hbs template --}}
     <div class="site-cover flex flex-col ml-4 mt-4 mb-2 mb-12 mr-2">
       <div class="flex flex-col">
         <h1 class="text-[4rem] leading-[3.5rem] ml-[-0.2rem] mb-[0.25rem]">BA THESIS</h1>
-        <p class="uppercase">Here you can find everything about my BA-thesis :]</p>
+        <p class="uppercase">Here you can find everything related to my BA-thesis :]</p>
       </div>
     </div>
 
