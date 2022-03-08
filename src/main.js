@@ -1,7 +1,4 @@
-require('fslightbox');
-
 import './assets/css/index.css';
-import './assets/js/infinitescroll.js';
 
 import './partials/navigation.hbs';
 import './partials/header.hbs';
@@ -16,8 +13,9 @@ import './page-about.hbs';
 import './bachelor.hbs';
 
 
-console.log("hi :)");
-
+console.log("hii :)");
+console.log("changed");
+/*
 function wrap(el, wrapper) {
   el.parentNode.insertBefore(wrapper, el);
   wrapper.appendChild(el);
@@ -32,4 +30,4 @@ window.onload = function () {
     wrap(element, wrapper);
   });
   refreshFsLightbox();
-}
+}*/

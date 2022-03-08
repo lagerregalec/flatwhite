@@ -6,7 +6,7 @@ into the {body} tag of the default.hbs template --}}
   var getUrl = window.location;
   var url_parent = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 
-  $(window).on('load',function(){
+  $(window).on("load",function(){
     document.getElementById("back-button").href = url_parent;
 
     $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
