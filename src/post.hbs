@@ -8,7 +8,7 @@ into the {body} tag of the default.hbs template --}}
 
   $(window).on("load",function(){
     document.getElementById("back-button").href = url_parent;
-
+    
     $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
       if ($(this).width()/$(this).height() >= 1) {
         $(this).addClass('landscape');
@@ -16,6 +16,17 @@ into the {body} tag of the default.hbs template --}}
         $(this).addClass('portrait');
       }
     });
+  });
+  $(window).on("resize",function(){
+      document.getElementById("back-button").href = url_parent;
+
+      $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
+          if ($(this).width()/$(this).height() >= 1) {
+              $(this).addClass('landscape');
+          } else {
+              $(this).addClass('portrait');
+          }
+      });
   });
 </script>
 
