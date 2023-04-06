@@ -213,6 +213,11 @@ img{
     height: 100%;
   }
 
+  .kg-width-wide .hascaption, .kg-width-full .hascaption > .portrait{
+    width: auto;
+    max-height:95vh;
+  }
+
   .nav-current {
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 8px black;
@@ -227,7 +232,6 @@ img{
 
   .kg-width-regular, .kg.width-wide, img {
     height: calc(100vh - 1.8rem);
-    object-fit: cover;
   }
   #hiding-parent .hidden-child{
     overflow: hidden;
