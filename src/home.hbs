@@ -20,7 +20,7 @@ into the {body} of the default.hbs template --}}
               {{#if feature_image}}
               {{!-- This is a responsive image, it loads different sizes depending on device
               https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-                <img class="flex flex-grow-1 object-cover w-full h-full ml-4"
+                <img class="flex flex-grow-1 ml-4" id="home-icon"
                      srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
                     {{img_url feature_image size="l"}} 1000w,

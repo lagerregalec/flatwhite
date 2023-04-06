@@ -38,9 +38,11 @@ into the {body} of the default.hbs template --}}
                   {{#if tags}}
                     <ul class="flex flex-grow-1 justify-end">
                       {{#foreach tags}}
+                          {{#unless @first}}
                         <li class="m-0 flex flex-col justify-start">
                           <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
                         </li>
+                          {{/unless}}
                       {{/foreach}}
                     </ul>
                   {{/if}}

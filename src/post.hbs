@@ -89,12 +89,12 @@ into the {body} tag of the default.hbs template --}}
     <section class="gh-content mt-16 justify-between flex flex-row w-full pl-9 md:pr-9 pr-32 mb-9">
       <div>
     {{#next_post in="primary_tag"}}
-      <a href="{{url}}" class="uppercase">Prev</a>
+      <a href="{{url}}" class="uppercase font-sans">Prev</a>
     {{/next_post}}
       </div>
       <div class=" !mt-0">
     {{#prev_post in="primary_tag"}}
-      <a id="next-post" href="{{url}}" class="uppercase">Next</a>
+      <a id="next-post" href="{{url}}" class="uppercase font-sans">Next</a>
     {{/prev_post}}
       </div>
     </section>
@@ -109,26 +109,40 @@ into the {body} tag of the default.hbs template --}}
 
           $(window).on("load",function(){
               document.getElementById("back-button").href = url_parent;
-
-              $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
-                  if ($(this).width()/$(this).height() >= 1) {
-                      $(this).addClass('landscape');
-                  } else {
-                      $(this).addClass('portrait');
-                  }
-              });
           });
-          $(window).on("resize",function(){
-              document.getElementById("back-button").href = url_parent;
 
-              $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
-                  if ($(this).width()/$(this).height() >= 1) {
-                      $(this).addClass('landscape');
+          function addImageClasses() {
+              const images = document.getElementsByTagName('img');
+
+              for (let i = 0; i < images.length; i++) {
+                  const img = images[i];
+
+                  if (img.complete) {
+                      // Check if the image is landscape or portrait
+                      if (img.width > img.height) {
+                          img.classList.add('landscape');
+                          img.classList.remove('portrait');
+                      } else {
+                          img.classList.add('portrait');
+                          img.classList.remove('landscape');
+                      }
                   } else {
-                      $(this).addClass('portrait');
+                      // Wait for the image to load before checking its dimensions
+                      img.addEventListener('load', function() {
+                          if (img.width > img.height) {
+                              img.classList.add('landscape');
+                              img.classList.remove('portrait');
+                          } else {
+                              img.classList.add('portrait');
+                              img.classList.remove('landscape');
+                          }
+                      });
                   }
-              });
-          });
+              }
+          }
+
+          // Call the function once the images have been loaded
+          window.addEventListener('load', addImageClasses);
       </script>
   </article>
 {{/post}}

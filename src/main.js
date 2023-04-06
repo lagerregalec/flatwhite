@@ -10,11 +10,9 @@ import './index.hbs';
 import './portfolio.hbs';
 import './post.hbs';
 import './page-about.hbs';
-import './bachelor.hbs';
+import './cv.hbs';
 
 
-console.log("hii :)");
-console.log("changed");
 /*
 function wrap(el, wrapper) {
   el.parentNode.insertBefore(wrapper, el);
