@@ -86,15 +86,15 @@ into the {body} tag of the default.hbs template --}}
             {{content}}
           </section>
 
-    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-9 md:pr-9 pr-32 mb-9">
-      <div>
+    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-[1.975rem] md:pr-[1.92rem] pr-16 mb-9">
+        <div class="m-0 flex flex-col justify-start !mt-0">
     {{#next_post in="primary_tag"}}
-      <a href="{{url}}" class="uppercase font-sans">Prev</a>
+      <a href="{{url}}" class="tag !text-base no-underline-important uppercase font-sans">Prev</a>
     {{/next_post}}
       </div>
-      <div class=" !mt-0">
+      <div class="m-0 flex flex-col justify-start !mt-0">
     {{#prev_post in="primary_tag"}}
-      <a id="next-post" href="{{url}}" class="uppercase font-sans">Next</a>
+      <a id="next-post" href="{{url}}" class="tag !text-base no-underline-important uppercase font-sans">Next</a>
     {{/prev_post}}
       </div>
     </section>

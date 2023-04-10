@@ -374,7 +374,7 @@ headings, text, images and lists. We deal with cards lower down. */
 
 /* [id] represents all headings h1-h6, reset all margins */
 .gh-content > [id] {
-  @apply text-black font-sans leading-7 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
+  @apply text-black font-sans leading-5 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
 }
 
 .gh-content > h3 {
@@ -388,12 +388,16 @@ headings, text, images and lists. We deal with cards lower down. */
 /* Add back a top margin to all headings, unless a heading
 is the very first element in the post content */
 .gh-content > [id]:not(:first-child) {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 /* Add a small margin between a heading and anything after it */
 .gh-content > [id] + * {
-  margin-top: 1rem !important;
+  margin-top: 0.25rem;
+}
+
+.gh-content > h2 + * {
+  margin-top: 1rem!important;
 }
 
 /* A larger margin before/after HRs and blockquotes */
