@@ -62,6 +62,10 @@
 }
 p{line-height: 1.25rem;}
 
+img {
+  @apply w-full h-full;
+}
+
 .tag-blog p, .tag-blog li, .tag-blog ul, .tag-blog dl, .tag-blog blockquote, .tag-blog ol{
   @apply font-normal;
 
@@ -156,13 +160,11 @@ html {
   background-color: transparent!important;
 }
 
-img{
-  @apply w-full h-full;
+.landscape {
+  width: 100vw;
+  object-fit: cover;
 }
 
-.landscape{
-  max-width: 100vw;
-}
 .portrait{
   max-height: 100vh;
 }
@@ -193,24 +195,17 @@ img{
     min-height: 30vh;
   }
   .landscape{
-    max-height: 95vh;
-    width: auto;
+    max-height: calc(100vh - 1.8rem);
   }
   .portrait{
     width: auto;
-    max-height:95vh;
+    max-height: calc(100vh - 1.8rem);
   }
 
   .kg-width-wide > .portrait{
     max-height: unset;
     height: 100%;
     @apply w-7/12 px-0 ml-[1.92rem];
-  }
-
-  .kg-width-full > .portrait{
-    max-height: unset;
-    width: 100%;
-    height: 100%;
   }
 
   .kg-width-wide .hascaption, .kg-width-full .hascaption > .portrait{
@@ -230,9 +225,6 @@ img{
     margin-left: 0;
   }
 
-  .kg-width-regular, .kg.width-wide, img {
-    height: calc(100vh - 1.8rem);
-  }
   #hiding-parent .hidden-child{
     overflow: hidden;
     opacity: 0;
@@ -273,7 +265,8 @@ img{
     width: auto;
   }
   .landscape{
-    max-height: 100vh;
+    max-height: calc(100vh - 1.8rem);
+    width: auto;
   }
   /*#nav-p-items :last-child{
     border-left: none;
@@ -516,7 +509,6 @@ except for when immediately preceeded by a heading */
 /* This keeps small iamges centered */
 .kg-image-card img {
   margin: 6rem 0 0.5rem 0;
-  /*height: calc(66.6vmin - 1.8rem);*/
   object-fit: contain;
   @apply md:px-[1.92rem];
 }
@@ -778,14 +770,14 @@ Ghost editor. */
 
 .kg-card-hascaption img {
   grid-column: 1 / -1;
-  width: auto;
   @apply md:ml-[1.92rem] md:w-7/12 md:h-auto px-0;
 }
 
 .kg-card-hascaption figcaption {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-bottom: 0.5rem;
-  align-items: end;
 
 }
 
