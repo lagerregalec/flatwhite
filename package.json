@@ -1,5 +1,5 @@
 {
-  "name": "alec",
+  "name": "flatwhite",
   "version": "1.0.0",
   "description": "a ghost cms portfolio theme",
   "keywords": [
@@ -22,7 +22,7 @@
   },
   "author": {
     "name": "Alec Nikolov",
-    "email": "allyomalley@hotmail.de",
+    "email": "hi@alecnikolov.ch",
     "url": "https://www.alecnikolov.ch/"
   },
   "config": {

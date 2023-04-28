@@ -5,10 +5,23 @@ into the {body} of the default.hbs template --}}
 <script>
   let clientWidth;
   let root = document.documentElement;
+  var Tags;
 
+  var url_slug = window.location.pathname.split('/')[2];
+  var url_parent = window.location.protocol + "//" + window.location.host + "/blog/";
   window.addEventListener("load", () => {
     clientWidth = document.getElementById('size-ref').clientWidth;
     root.style.setProperty('--size-ref-x', clientWidth + "px");
+   // $(url_slug).addClass('active-tag').attr('href', url_parent);
+
+      Tags = document.getElementsByClassName(url_slug);
+      for (var i = 0; i < Tags.length; ++i) {
+          Tags[i].classList.add('active-tag');
+          Tags[i].href = url_parent;
+      }
+
+    console.log(url_slug);
+    console.log(url_parent);
   });
 </script>
 <main id="site-main">
@@ -25,9 +38,11 @@ into the {body} of the default.hbs template --}}
                   {{#if tags}}
                     <ul class="flex flex-grow-1 justify-end">
                       {{#foreach tags}}
+                          {{#unless @first}}
                         <li class="m-0 flex flex-col justify-start">
                           <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
                         </li>
+                          {{/unless}}
                       {{/foreach}}
                     </ul>
                   {{/if}}

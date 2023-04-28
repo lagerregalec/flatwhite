@@ -2,22 +2,6 @@
 
 {{!-- The tag above means: insert everything in this file
 into the {body} tag of the default.hbs template --}}
-<script>
-  var getUrl = window.location;
-  var url_parent = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-
-  $(window).on('load',function(){
-    document.getElementById("back-button").href = url_parent;
-
-    $('img').each(function(){ //you need to put this inside the window.onload-function (not document.ready), otherwise the image dimensions won't be available yet
-      if ($(this).width()/$(this).height() >= 1) {
-        $(this).addClass('landscape');
-      } else {
-        $(this).addClass('portrait');
-      }
-    });
-  });
-</script>
 
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the post --}}
@@ -65,8 +49,8 @@ into the {body} tag of the default.hbs template --}}
                   sizes="(min-width: 1400px) 1400px, 92vw"
                   src="{{img_url feature_image size="xl"}}"
                   alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                  class="object-cover mr-0"
-                  style="width: 100%!important;"
+                  class="mr-0"
+                  style="width: 100%!important; object-fit: cover"
           />
           {{#if feature_image_caption}}
             <figcaption>{{feature_image_caption}}</figcaption>
@@ -102,15 +86,15 @@ into the {body} tag of the default.hbs template --}}
             {{content}}
           </section>
 
-    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-9 md:pr-9 pr-32 mb-9">
-      <div>
+    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-[1.975rem] md:pr-[1.92rem] pr-16 mb-9">
+        <div class="m-0 flex flex-col justify-start !mt-0">
     {{#next_post in="primary_tag"}}
-      <a href="{{url}}" class="uppercase">Prev</a>
+      <a href="{{url}}" class="tag !text-base no-underline-important uppercase font-sans">Prev</a>
     {{/next_post}}
       </div>
-      <div class=" !mt-0">
+      <div class="m-0 flex flex-col justify-start !mt-0">
     {{#prev_post in="primary_tag"}}
-      <a id="next-post" href="{{url}}" class="uppercase">Next</a>
+      <a id="next-post" href="{{url}}" class="tag !text-base no-underline-important uppercase font-sans">Next</a>
     {{/prev_post}}
       </div>
     </section>
@@ -119,5 +103,48 @@ into the {body} tag of the default.hbs template --}}
               If you want to embed comments, this is a good place to paste your code!
           </section>
           --}}
+      <script>
+          var getUrl = window.location;
+          var url_parent = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+
+          $(window).on("load",function(){
+              document.getElementById("back-button").href = url_parent;
+          });
+
+          function addImageClasses() {
+              const images = document.getElementsByTagName('img');
+
+              for (let i = 0; i < images.length; i++) {
+                  const img = images[i];
+
+                  if (img.complete) {
+                      // Check if the image is landscape or portrait
+                      if (img.naturalWidth > img.naturalHeight) {
+                          img.classList.add('landscape');
+                          img.classList.remove('portrait');
+                      } else {
+                          img.classList.add('portrait');
+                          img.classList.remove('landscape');
+                      }
+                  } else {
+                      // Wait for the image to load before checking its dimensions
+                      img.addEventListener('load', function() {
+                          if (img.naturalWidth > img.naturalHeight) {
+                              img.classList.add('landscape');
+                              img.classList.remove('portrait');
+                          } else {
+                              img.classList.add('portrait');
+                              img.classList.remove('landscape');
+                          }
+                      });
+                  }
+              }
+          }
+
+          // Call the function once the images have been loaded
+          window.addEventListener('load', addImageClasses);
+
+      </script>
   </article>
 {{/post}}
+
