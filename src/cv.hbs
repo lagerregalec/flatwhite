@@ -1,8 +1,5 @@
-{{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-{{!-- The main content area --}}
-<script>
+{{!< default}} {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template
+    --}} {{!-- The main content area --}} <script>
     let clientWidth;
     let root = document.documentElement;
     var Tags;
@@ -10,331 +7,553 @@ into the {body} of the default.hbs template --}}
     var url_slug = window.location.pathname.split('/')[2];
     var url_parent = window.location.protocol + "//" + window.location.host + "/cv/";
     window.addEventListener("load", () => {
-        clientWidth = document.getElementById('size-ref').clientWidth;
-        root.style.setProperty('--size-ref-x', clientWidth + "px");
-        // $(url_slug).addClass('active-tag').attr('href', url_parent);
+    clientWidth = document.getElementById('size-ref').clientWidth;
+    root.style.setProperty('--size-ref-x', clientWidth + "px");
+    // $(url_slug).addClass('active-tag').attr('href', url_parent);
 
-        Tags = document.getElementsByClassName(url_slug);
-        for (var i = 0; i < Tags.length; ++i) {
-            Tags[i].classList.add('active-tag');
-            Tags[i].href = url_parent;
-        }
+    Tags = document.getElementsByClassName(url_slug);
+    for (var i = 0; i < Tags.length; ++i) { Tags[i].classList.add('active-tag'); Tags[i].href=url_parent; }
+        console.log(url_slug); console.log(url_parent); }); </script>
 
-        console.log(url_slug);
-        console.log(url_parent);
-    });
-</script>
-<main id="site-main">
-    <div class="mr-[1.8rem]">
-        <h1 class="pl-2 mt-0.5 leading-9">CURRICULUM VITAE</h1>
-        <p class ="pl-2 mb-2 font-serif lg:mr-16 mr-2">Click on the activities to learn more about the things I did :)<br>
-                                                        If you prefer a printed Version of all the documents check the  <a href="https://alecnikolov.ch/cv/downloads/" class="underline">downloads page</a>  right below.
-            <!--<br><br>Alec Nikolov<br>Saumackerstrasse 26<br>8048 Altstetten<br>hi@alecniklov.ch--></p>
-    </div>
-    <div class="mr-[1.8rem] blog-bottom-margin">
-        <div class="font-sans border-black border-t md:border-t-2">
-            <div class="grid grid-cols-1 grid-flow-row-dense gap-0">
-                {{!-- Iterate through each posts --}}
-                {{#foreach posts}}
+        <main id="site-main">
+            <div class="mr-[1.8rem]">
+                <h1 class="pl-2 mt-0.5 leading-9">CURRICULUM VITAE</h1>
+                <p class="pl-2 mb-2 font-serif lg:mr-16 mr-2">Click on the activities to learn more about the things I
+                    did :)<br>
+                    If you prefer a printed Version of all the documents check the <a
+                        href="https://alecnikolov.ch/cv/downloads/" class="underline">downloads page</a>.
+                    <!--<br><br>Alec Nikolov<br>Saumackerstrasse 26<br>8048 Altstetten<br>hi@alecniklov.ch-->
+                </p>
+            </div>
+            <div class="mr-[1.8rem] blog-bottom-margin">
+                <div class="font-sans border-black border-t md:border-t-2">
+                    <div class="grid grid-cols-1 grid-flow-row-dense gap-0">
 
-                    <article class="{{post_class}} border-b md:border-b-2 border-black">
-                        <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]" id="blog-post-{{@index}}">
-                            <div class="card-info flex flex-row justify-between mb-0.5">
-                                <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans" id="excerpt"> {{excerpt characters="150"}} </p>
-                                {{#if tags}}
+                        <div class="border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">EDUCATION</h1>
+                        </div>
+                        {{!-- Iterate through each posts --}}
+                        {{#get "posts" filter="tags:[education]"}}
+                        {{#foreach posts}}
+                        <article class="{{post_class}} border-b md:border-b-2 border-black">
+                            <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
+                                <div class="card-info flex flex-row justify-between mb-0.5">
+                                    <p class="flex flex-col justify-end text-[0.725rem] leading-none font-sans"
+                                        id="excerpt"> {{excerpt characters="150"}} </p>
+                                    {{!--{{#if tags}}
                                     <ul class="flex flex-grow-1 justify-end">
                                         {{#foreach tags}}
-                                            {{#unless @first}}
-                                            <li class="m-0 flex flex-col justify-start">
-                                                <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
-                                            </li>
-                                            {{/unless}}
+                                        {{#unless @first}}
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a href="{{url}}" title="{{name}}"
+                                                class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                                        </li>
+                                        {{/unless}}
                                         {{/foreach}}
                                     </ul>
-                                {{/if}}
-                            </div>
-                            <a href="{{url}}" id="hiding-parent">
-                                <h1 class="flex font-bold uppercase text-3xl leading-7">{{title}}</h1>
-                                {{#if feature_image}}
-                                {{!-- This is a responsive image, it loads different sizes depending on device
-                                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                                    {{/if}}--}}
+                                </div>
+
+                                <a href="{{url}}" id="hiding-parent">
+                                    <h1
+                                        class="flex flex-col justify-end text-[0.725rem] leading-none font-sans font-bold uppercase">
+                                        {{title}}
+                                    </h1>
+                                    {{#if feature_image}}
+                                    {{!-- This is a responsive image, it loads different sizes depending on device
+                                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                                    --}}
                                     <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
-                                         srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-                                         sizes="100vw"
-                                         src="{{img_url feature_image size="m"}}"
-                                         alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                         loading="lazy"
-                                    />
-                                {{/if}}
-                            </a>
+                                        srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image
+                                        size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url
+                                        feature_image size="xl" }} 2000w" sizes="100vw"
+                                        src="{{img_url feature_image size=" m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy" />
+                                    {{/if}}
+                                </a>
 
-                        </div>{{!--/.post-card-content--}}
-                    </article>
-                {{/foreach}}
-                <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
-                    <h1 class="pl-2 mt-0.5 leading-9">LANGUAGES</h1>
-                    <p class ="pl-2 mb-2 font-serif lg:mr-16 mr-2">Fluent in English and German. Conversant in French.</p>
-                </div>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">German</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Writing & Speech</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">English</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Writing & Speech</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">French</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Writing & Speech</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-8/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
-                    <h1 class="pl-2 mt-0.5 leading-9">SKILLS</h1>
-                    <p class ="pl-2 mb-2 font-serif lg:mr-16 mr-2">Some of the noteworthy things I learned.</p>
-                </div>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Figma</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Design Thinking</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Fast Prototyping</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase"> Adobe Creative Cloud</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Project Management</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Microsoft Office</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase"> HTML, CSS, JS</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-8/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase"> Arduino, C++</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Skills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-6/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
-                    <h1 class="pl-2 mt-0.5 leading-9">SOFTSKILLS</h1>
-                    <p class ="pl-2 mb-2 font-serif lg:mr-16 mr-2">Some of the qualities I feel are important in a working environment.</p>
-                </div>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Team Work</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Softskills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Clear Communication</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Softskills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Fast Learner</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Softskills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Autodidact</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Softskills</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h1 class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">x</h1>
-                    </div>{{!--/.post-card-content--}}
-                </article>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        {{/foreach}}
+                        {{/get}}
 
-                <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
-                    <h1 class="pl-2 mt-0.5 leading-9">CERTIFICATES</h1>
-                    <p class ="pl-2 mb-2 font-serif lg:mr-16 mr-2">Courses, licenses and certificates</p>
+                        <div class="border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">PROJECTS</h1>
+                        </div>
+                        {{!-- Iterate through each posts --}}
+                        {{#get "posts" filter="tags:[projects]"}}
+                        {{#foreach posts}}
+                        <article class="{{post_class}} border-b md:border-b-2 border-black">
+                            <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
+                                <div class="card-info flex flex-row justify-between mb-0.5">
+                                    <p class="flex flex-col justify-end text-[0.725rem]  leading-none font-sans"
+                                        id="excerpt"> {{excerpt characters="150"}} </p>
+                                    {{!--{{#if tags}}
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        {{#foreach tags}}
+                                        {{#unless @first}}
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a href="{{url}}" title="{{name}}"
+                                                class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                                        </li>
+                                        {{/unless}}
+                                        {{/foreach}}
+                                    </ul>
+                                    {{/if}}--}}
+                                </div>
+
+                                <a href="{{url}}" id="hiding-parent">
+                                    <h1
+                                        class="flex flex-col justify-end text-[0.725rem] leading-none font-sans font-bold uppercase">
+                                        {{title}}
+                                    </h1>
+                                    {{#if feature_image}}
+                                    {{!-- This is a responsive image, it loads different sizes depending on device
+                                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                                    --}}
+                                    <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                        srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image
+                                        size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url
+                                        feature_image size="xl" }} 2000w" sizes="100vw"
+                                        src="{{img_url feature_image size=" m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy" />
+                                    {{/if}}
+                                </a>
+
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        {{/foreach}}
+                        {{/get}}
+
+                        <div class="border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">EXPERIENCE</h1>
+                        </div>
+                        {{!-- Iterate through each posts --}}
+                        {{#get "posts" filter="tags:[Experience]"}}
+                        {{#foreach posts}}
+                        <article class="{{post_class}} border-b md:border-b-2 border-black">
+                            <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
+
+                                <p class="flex flex-col justify-end text-[0.725rem] mb-0.5 leading-none font-sans"
+                                    id="excerpt"> {{excerpt characters="150"}} </p>
+                                {{!--{{#if tags}}
+                                <ul class="flex flex-grow-1 justify-end">
+                                    {{#foreach tags}}
+                                    {{#unless @first}}
+                                    <li class="m-0 flex flex-col justify-start">
+                                        <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                                    </li>
+                                    {{/unless}}
+                                    {{/foreach}}
+                                </ul>
+                                {{/if}}--}}
+
+
+                                <a href="{{url}}" id="hiding-parent">
+                                    <h1
+                                        class="flex flex-col justify-end text-[0.725rem] leading-none font-sans font-bold uppercase">
+                                        {{title}}
+                                    </h1>
+                                    {{#if feature_image}}
+                                    {{!-- This is a responsive image, it loads different sizes depending on device
+                                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                                    --}}
+                                    <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                        srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image
+                                        size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url
+                                        feature_image size="xl" }} 2000w" sizes="100vw"
+                                        src="{{img_url feature_image size=" m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy" />
+                                    {{/if}}
+                                </a>
+
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        {{/foreach}}
+                        {{/get}}
+
+                        <div class="border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">CIVIL SERVICE</h1>
+                        </div>
+                        {{!-- Iterate through each posts --}}
+                        {{#get "posts" filter="tags:[civil-service]"}}
+                        {{#foreach posts}}
+                        <article class="{{post_class}} border-b md:border-b-2 border-black">
+                            <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
+
+                                <p class="flex flex-col justify-end text-[0.725rem] mb-0.5 leading-none font-sans"
+                                    id="excerpt"> {{excerpt characters="150"}} </p>
+                                {{!--{{#if tags}}
+                                <ul class="flex flex-grow-1 justify-end">
+                                    {{#foreach tags}}
+                                    {{#unless @first}}
+                                    <li class="m-0 flex flex-col justify-start">
+                                        <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                                    </li>
+                                    {{/unless}}
+                                    {{/foreach}}
+                                </ul>
+                                {{/if}}--}}
+
+
+                                <a href="{{url}}" id="hiding-parent">
+                                    <h1
+                                        class="flex flex-col justify-end text-[0.725rem] leading-none font-sans font-bold uppercase">
+                                        {{title}}
+                                    </h1>
+                                    {{#if feature_image}}
+                                    {{!-- This is a responsive image, it loads different sizes depending on device
+                                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                                    --}}
+                                    <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                        srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image
+                                        size="m" }} 600w, {{img_url feature_image size="l" }} 1000w, {{img_url
+                                        feature_image size="xl" }} 2000w" sizes="100vw"
+                                        src="{{img_url feature_image size=" m"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                        loading="lazy" />
+                                    {{/if}}
+                                </a>
+
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        {{/foreach}}
+                        {{/get}}
+
+                        <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">LANGUAGES</h1>
+                            <p class="pl-2 mb-2 font-serif lg:mr-16 mr-2">Fluent in English and German. Conversant in
+                                French.</p>
+                        </div>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        German</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Writing & Speech</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        English</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Writing & Speech</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        French</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Writing & Speech</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-8/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">SKILLS</h1>
+                            <p class="pl-2 mb-2 font-serif lg:mr-16 mr-2">Some of the noteworthy things I learned.</p>
+                        </div>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Figma</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Design Thinking</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Fast Prototyping</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Adobe Creative Cloud</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Project Management</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Microsoft Office</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        HTML, CSS, JS</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Arduino, C++</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Skills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-6/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">SOFTSKILLS</h1>
+                            <p class="pl-2 mb-2 font-serif lg:mr-16 mr-2">Some of the qualities I feel are important in
+                                a working environment.</p>
+                        </div>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Team Work</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Softskills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Clear Communication</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Softskills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Fast Learner</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Softskills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Autodidact</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Softskills</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h1
+                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    x</h1>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+
+                        <div class="mr-[1.8rem] border-b md:border-b-2 border-black">
+                            <h1 class="pl-2 mt-0.5 leading-9">CERTIFICATES</h1>
+                            <p class="pl-2 mb-2 font-serif lg:mr-16 mr-2">Courses, licenses and certificates</p>
+                        </div>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        2nd Place SDA Awards</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Awards</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Communication & Supervision – Rotes Kreuz</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Courses</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Environmental Protection and Nature Conservation – Push</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Courses</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                        <article class="border-b md:border-b-2 border-black">
+                            <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
+                                <div class="card-info flex flex-row justify-between mb-1.5">
+                                    <p
+                                        class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">
+                                        Driving License Kat.B</p>
+                                    <ul class="flex flex-grow-1 justify-end">
+                                        <li class="m-0 flex flex-col justify-start">
+                                            <a title="Sprache" class="tag">Licenses</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>{{!--/.post-card-content--}}
+                        </article>
+                    </div>
                 </div>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">2nd Place SDA Awards</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Awards</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Communication & Supervision – Rotes Kreuz</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Courses</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Environmental Protection and Nature Conservation – Push</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Courses</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>{{!--/.post-card-content--}}
-                </article>
-                <article class="border-b md:border-b-2 border-black">
-                    <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]">
-                        <div class="card-info flex flex-row justify-between mb-1.5">
-                            <p class="flex flex-col justify-end text-[0.725rem] mt-[0.35rem] md:mt-0 leading-none font-sans font-bold uppercase">Driving License Kat.B</p>
-                            <ul class="flex flex-grow-1 justify-end">
-                                <li class="m-0 flex flex-col justify-start">
-                                    <a title="Sprache" class="tag">Licenses</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>{{!--/.post-card-content--}}
-                </article>
             </div>
-        </div>
-    </div>
-</main>
+        </main>
