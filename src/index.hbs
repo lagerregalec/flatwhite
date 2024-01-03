@@ -30,7 +30,6 @@ into the {body} of the default.hbs template --}}
         <div class="grid grid-cols-1 grid-flow-row-dense gap-0">
           {{!-- Iterate through each posts --}}
           {{#foreach posts}}
-
             <article class="{{post_class}} border-b md:border-b-2 border-black">
               <div class="card-body mb-1.5 pl-2 mt-[-1px] md:mt-[-2px]" id="blog-post-{{@index}}">
                 <div class="card-info flex flex-row justify-between mb-0.5">

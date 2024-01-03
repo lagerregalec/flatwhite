@@ -126,11 +126,11 @@ html {
   background-image: url("../face.svg");
   background-repeat: no-repeat;
   padding-bottom: 1rem;
-}*/
+}
 .home a, .home a:hover, .home .nav-current{
   color: transparent;
   text-shadow: none;
-}
+}*/
 
 .nav-current {
   -webkit-text-fill-color: transparent;
@@ -181,12 +181,20 @@ html {
   height: calc(var(--size-ref-x) - 1.8rem + 2px);
 }*/
 
+.subpage {
+  flex: 0 0 100%; /* Besides on big screens */
+  min-width: 0; /* Ensure flexibility */
+}
+
 @screen sm {
   html {
     font-size: 26px;
   }}
 
 @screen md {
+  .subpage {
+    flex: 1; /* Underneath on smaller screens */
+}
   .blog-bottom-margin{
     margin-bottom: calc(100vh - var(--size-ref-x) + 1.71rem );
   }
