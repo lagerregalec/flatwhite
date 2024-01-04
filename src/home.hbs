@@ -51,7 +51,7 @@
                                 {{!-- Iterate through each posts --}}
                                 {{#get "posts" filter="tags:[education]"}}
                                 {{#foreach posts}}
-                                <article class="{{post_class}} border-b md:border-b-2 border-black">
+                                <article class="{{post_class}} relative border-b md:border-b-2 border-black">
                                     <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
                                         <div class="card-info flex flex-row justify-between mb-0.5">
                                             <p class="flex flex-col justify-end text-[0.725rem] leading-none font-sans"
@@ -80,7 +80,7 @@
                                             device
                                             https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
                                             --}}
-                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto h-auto overflow-hidden"
                                                 srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
                                                 feature_image size="m" }} 600w, {{img_url feature_image size="l" }}
                                                 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="100vw"
@@ -101,7 +101,7 @@
                                 {{!-- Iterate through each posts --}}
                                 {{#get "posts" filter="tags:[projects]"}}
                                 {{#foreach posts}}
-                                <article class="{{post_class}} border-b md:border-b-2 border-black">
+                                <article class="{{post_class}} relative border-b md:border-b-2 border-black">
                                     <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
                                         <div class="card-info flex flex-row justify-between mb-0.5">
                                             <p class="flex flex-col justify-end text-[0.725rem]  leading-none font-sans"
@@ -130,7 +130,7 @@
                                             device
                                             https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
                                             --}}
-                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto h-auto overflow-hidden"
                                                 srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
                                                 feature_image size="m" }} 600w, {{img_url feature_image size="l" }}
                                                 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="100vw"
@@ -151,7 +151,7 @@
                                 {{!-- Iterate through each posts --}}
                                 {{#get "posts" filter="tags:[Experience]"}}
                                 {{#foreach posts}}
-                                <article class="{{post_class}} border-b md:border-b-2 border-black">
+                                <article class="{{post_class}} relative border-b md:border-b-2 border-black">
                                     <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
 
                                         <p class="flex flex-col justify-end text-[0.725rem] mb-0.5 leading-none font-sans"
@@ -180,7 +180,7 @@
                                             device
                                             https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
                                             --}}
-                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto h-auto overflow-hidden"
                                                 srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
                                                 feature_image size="m" }} 600w, {{img_url feature_image size="l" }}
                                                 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="100vw"
@@ -201,7 +201,7 @@
                                 {{!-- Iterate through each posts --}}
                                 {{#get "posts" filter="tags:[civil-service]"}}
                                 {{#foreach posts}}
-                                <article class="{{post_class}} border-b md:border-b-2 border-black">
+                                <article class="{{post_class}} relative border-b md:border-b-2 border-black">
                                     <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
 
                                         <p class="flex flex-col justify-end text-[0.725rem] mb-0.5 leading-none font-sans"
@@ -230,7 +230,7 @@
                                             device
                                             https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
                                             --}}
-                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto h-auto overflow-hidden"
                                                 srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
                                                 feature_image size="m" }} 600w, {{img_url feature_image size="l" }}
                                                 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="100vw"
@@ -253,7 +253,7 @@
                                 {{!-- Iterate through each posts --}}
                                 {{#get "posts" filter="tags:[certificates]"}}
                                 {{#foreach posts}}
-                                <article class="{{post_class}} border-b md:border-b-2 border-black">
+                                <article class="{{post_class}} relative border-b md:border-b-2 border-black">
                                     <div class="card-body my-1.5 pl-2" id="blog-post-{{@index}}">
                                         <div class="card-info flex flex-row justify-between mb-0.5">
                                             <p class="flex flex-col justify-end text-[0.725rem]  leading-none font-sans"
@@ -282,7 +282,7 @@
                                             device
                                             https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
                                             --}}
-                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto max-h-32 overflow-hidden"
+                                            <img class="blog-image hidden-img {{#if @even}}even{{else}}odd{{/if}} absolute object-fit w-auto h-auto overflow-hidden"
                                                 srcset="{{img_url feature_image size=" s"}} 300w, {{img_url
                                                 feature_image size="m" }} 600w, {{img_url feature_image size="l" }}
                                                 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="100vw"
