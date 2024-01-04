@@ -14,12 +14,12 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
 <main id="site-main">
-  <div class="mr-[1.8rem] mb-[1.8rem] ">
+  <div class="mr-[1.8rem] mb-[1.8rem]">
     <!--div class="vh-2-3 flex justify-center items-center text-6xl text-center font-semibold">
       {{@site.description}}
     </div-->
     {{#foreach posts}}
-      <article href="{{url}}" id="thumb-size" class="{{post_class}} h-[33vh] intersectionObserved relative overflow-hidden bg-black border-bottom border-black md:h-[66vh]">
+      <article href="{{url}}" id="thumb-size" class="{{post_class}} aos-element h-[33vh] intersectionObserved relative overflow-hidden bg-black border-bottom border-black md:h-[66vh]" data-aos="fade-up">
         {{#if feature_image}}
           <a class="post-card-image-link z-30" href="{{url}}">
             {{!-- This is a responsive image, it loads different sizes depending on device

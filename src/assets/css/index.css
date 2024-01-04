@@ -33,10 +33,12 @@
 #hiding-parent .hidden-child{
   opacity: 1;
   @apply max-h-full mt-0;
+
 }
 #hiding-parent:hover .hidden-child{
   opacity: 1;
   @apply max-h-64 mt-0;
+  transition-delay:0.85s;
 }
 
 #hiding-parent .hidden-img{
@@ -46,6 +48,9 @@
 #hiding-parent:hover .hidden-img{
   visibility: visible;
   @apply max-h-32;
+  transition-timing-function:ease;
+  transition-duration: 200ms;
+
 }
 
 #home-icon{

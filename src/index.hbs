@@ -39,7 +39,7 @@ into the {body} of the default.hbs template --}}
                       {{#foreach tags}}
                           {{#unless @first}}
                         <li class="m-0 flex flex-col justify-start">
-                          <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                          <a href="{{url}}" title="{{name}}" data-aos="fade-right" class="tag tag-{{id}} {{slug}}">{{name}}</a>
                         </li>
                           {{/unless}}
                       {{/foreach}}
@@ -47,7 +47,7 @@ into the {body} of the default.hbs template --}}
                   {{/if}}
                 </div>
                 <a href="{{url}}" id="hiding-parent">
-                  <h1 class="flex font-bold uppercase text-3xl leading-7">{{title}}</h1>
+                  <h1 class="flex font-bold uppercase text-3xl leading-7" data-aos="fade-right" data-aos-duration="500">{{title}}</h1>
                   {{#if feature_image}}
                   {{!-- This is a responsive image, it loads different sizes depending on device
                   https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
