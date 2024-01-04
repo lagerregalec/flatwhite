@@ -15,7 +15,7 @@ module.exports = {
     clean: true,
   },
   experiments: {
-    asset: true
+    
   },
   //watch: true,
   watchOptions: {
