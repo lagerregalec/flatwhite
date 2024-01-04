@@ -75,6 +75,7 @@
     "webpack-livereload-plugin": "^3.0.1"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "fslightbox": "^3.3.0-2"
   }
 }

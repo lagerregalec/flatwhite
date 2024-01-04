@@ -10,13 +10,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="http://localhost:35729/livereload.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     {{!-- Dynamic header content for SEO, meta tags, code injection etc --}}
     {{ghost_head}}
 </head>
 
 <script>
-  var max_pages = parseInt('{{pagination.pages}}');
+    var max_pages = parseInt('{{pagination.pages}}');
 </script>
 
 <body class="{{body_class}}">
@@ -34,6 +35,38 @@
 
     {{!-- Dynamic footer content from code injection etc --}}
     {{ghost_foot}}
+
+    <!-- Include AOS JavaScript file -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Include Intersection Observer polyfill for better browser support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+
+    <!-- Initialize custom script for container-based scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollableContainers = document.querySelectorAll('.scrollableContainer');
+            const elementsToAnimate = document.querySelectorAll('.aos-element');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                    }
+                });
+            }, { threshold: 0.5 }); // Adjust threshold as needed
+
+            scrollableContainers.forEach(container => {
+                elementsToAnimate.forEach(element => {
+                    observer.observe(element);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
