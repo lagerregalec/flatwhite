@@ -12,7 +12,7 @@ into the {body} of the default.hbs template --}}
 <main id="site-main">
   <div class="mr-[1.8rem] font-sans">
     <div class="flex flex-wrap">
-      <div class="md:box-border md:overflow-y-auto md:h-[100vh] min-w-0 w-full md:w-1/2 flex-none md:flex-[0.5] lg:flex-[0.35] md:border-r-2 border-black">
+      <div id="about" class="md:box-border md:overflow-y-auto md:h-[100vh] min-w-0 w-full md:w-1/2 flex-none md:flex-[0.5] lg:flex-[0.35] md:border-r-2 border-black">
         {{#page}}
         <div class="flex flex-col">
           {{#if feature_image}}
@@ -34,7 +34,7 @@ into the {body} of the default.hbs template --}}
         </div>
       {{/page}}
       </div>
-      <div class="md:box-border md:overflow-y-auto md:h-[100vh]  min-w-0 w-full md:w-1/2 flex-none md:flex-1">
+      <div id="cv" class="md:box-border md:overflow-y-auto md:h-[100vh]  min-w-0 w-full md:w-1/2 flex-none md:flex-1">
       <div class="">
                 <h1 class="pl-2 mt-0.5 leading-9">CURRICULUM VITAE</h1>
                 <p class="pl-2 mb-2 text-[0.725rem] leading-4 font-sans lg:mr-16 mr-2">Click on the activities to learn more about the things I
@@ -310,7 +310,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -327,7 +327,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -344,7 +344,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-8/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-8/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -365,7 +365,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -382,7 +382,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -399,7 +399,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -416,7 +416,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -433,7 +433,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -450,7 +450,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -467,7 +467,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -484,7 +484,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-6/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-6/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -506,7 +506,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -523,7 +523,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-12/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-12/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -540,7 +540,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -557,7 +557,7 @@ into the {body} of the default.hbs template --}}
                                     </ul>
                                 </div>
                                 <h1
-                                    class="flex font-bold uppercase text-3xl leading-5 bg-black text-transparent w-11/12">
+                                    class="flex font-bold uppercase text-3xl leading-3 bg-black text-transparent w-11/12">
                                     x</h1>
                             </div>{{!--/.post-card-content--}}
                         </article>
@@ -573,14 +573,30 @@ into the {body} of the default.hbs template --}}
   .kg-image-card img {
   padding-left: 0;
   padding-right: 0;
+  padding-top: 2rem;
+}
+
+#about a{
+  text-decoration: underline;
 }
 
 .flex-col p{
-  font-size: 0.725rem;
+  font-size: 1rem;
   font-family: helvetica;
-  line-height: 1rem;
+  line-height: 1.25rem;
   padding-left: 0.5rem;
   padding-right: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+@media screen and (min-width:640px){
+    .flex-col p {
+        font-size: 0.725rem;
+        line-height: 1rem;
+    }
+    .kg-image-card img {
+  /*padding-top: 0rem;*/
+}
 }
 
 .kg-image-card img:first-of-type {
