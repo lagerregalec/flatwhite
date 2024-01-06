@@ -50,7 +50,7 @@
   @apply max-h-32;
   transition-timing-function:ease;
   transition-duration: 200ms;
-
+z-index: 1000;
 }
 
 #home-icon{
