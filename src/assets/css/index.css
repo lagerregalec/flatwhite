@@ -25,9 +25,7 @@
 }
 
 #hiding-parent {
-  width: 10rem;
-  height: 10rem;
-  background-color: #ababab;
+  
 }
 
 #hiding-parent .hidden-child{
@@ -50,7 +48,6 @@
   @apply max-h-32;
   transition-timing-function:ease;
   transition-duration: 200ms;
-z-index: 1000;
 }
 
 #home-icon{
@@ -121,7 +118,8 @@ html {
 }
 
 .tag {
-  @apply bg-white px-1 py-0.5 leading-none border border-black md:border-2 md:ml-[-2px] ml-[-1px] ml-[-1px] uppercase font-bold text-[0.725rem];
+  @apply px-1 py-0.5 leading-none border border-black md:border-2 md:ml-[-2px] ml-[-1px] ml-[-1px] uppercase font-bold text-[0.725rem];
+  background-color: yellow;
 }
 .tag:hover {
   @apply bg-black text-white;
@@ -528,6 +526,10 @@ except for when immediately preceeded by a heading */
   margin: 6rem 0 0.5rem 0;
   object-fit: contain;
   @apply md:px-[1.92rem];
+}
+
+.post-card-image{
+  filter: grayscale(1);
 }
 
 
