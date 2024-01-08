@@ -42,6 +42,8 @@
 #hiding-parent .hidden-img{
   visibility: hidden;
   @apply max-h-0 z-50;
+  transition-timing-function:ease;
+  transition-duration: 200ms;
 }
 #hiding-parent:hover .hidden-img{
   visibility: visible;
@@ -80,7 +82,8 @@ img {
 }
 
 .active-tag{
-  @apply bg-black text-white;
+  @apply text-white;
+  background-color: yellow;
 }
 
 a:hover{
@@ -119,7 +122,8 @@ html {
 
 .tag {
   @apply px-1 py-0.5 leading-none border border-black md:border-2 md:ml-[-2px] ml-[-1px] ml-[-1px] uppercase font-bold text-[0.725rem];
-  background-color: yellow;
+  background-color: white;
+  z-index: 10;
 }
 .tag:hover {
   @apply bg-black text-white;
@@ -528,8 +532,17 @@ except for when immediately preceeded by a heading */
   @apply md:px-[1.92rem];
 }
 
+
 .post-card-image{
   filter: grayscale(1);
+  transition-timing-function:ease;
+  transition-duration: 400ms;
+}
+
+.post-card-image-link:hover .post-card-image{
+filter: none;
+transition-timing-function:ease;
+transition-duration: 400ms;
 }
 
 
