@@ -16,44 +16,44 @@
   --size-ref-x: 300px;
 }
 
-.blog-image.odd{
+.blog-image.odd {
   @apply left-2/3 mt-4;
 }
 
-.blog-image.even{
+.blog-image.even {
   @apply right-1/3 mt-4;
 }
 
-#hiding-parent {
-  
-}
+#hiding-parent {}
 
-#hiding-parent .hidden-child{
+#hiding-parent .hidden-child {
   opacity: 1;
   @apply max-h-full mt-0;
 
 }
-#hiding-parent:hover .hidden-child{
+
+#hiding-parent:hover .hidden-child {
   opacity: 1;
   @apply max-h-64 mt-0;
-  transition-delay:0.85s;
+  transition-delay: 0.85s;
 }
 
-#hiding-parent .hidden-img{
+#hiding-parent .hidden-img {
   visibility: hidden;
   @apply max-h-0 z-50;
-  transition-timing-function:ease;
-  transition-duration: 200ms;
-}
-#hiding-parent:hover .hidden-img{
-  visibility: visible;
-  @apply max-h-32;
-  transition-timing-function:ease;
+  transition-timing-function: ease;
   transition-duration: 200ms;
 }
 
-#home-icon{
-  height: 65vh!important;
+#hiding-parent:hover .hidden-img {
+  visibility: visible;
+  @apply max-h-32;
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+}
+
+#home-icon {
+  height: 65vh !important;
 }
 
 .menu {
@@ -64,29 +64,47 @@
   background-size: contain;
   background-position: center;
 }
-p{line-height: 1.25rem;}
+
+p {
+  line-height: 1.25rem;
+}
 
 img {
   @apply w-full h-full;
 }
 
-.tag-blog p, .tag-blog li, .tag-blog ul, .tag-blog dl, .tag-blog blockquote, .tag-blog ol{
+.tag-blog p,
+.tag-blog li,
+.tag-blog ul,
+.tag-blog dl,
+.tag-blog blockquote,
+.tag-blog ol {
   @apply font-normal;
 
 }
-.tag-blog h1, .tag-blog h2, .tag-blog h3, .tag-blog h4, .tag-blog h5{
-  @apply font-sans;
-}
-.tag-cv h1, .tag-cv h2, .tag-cv h3, .tag-cv h4, .tag-cv h5{
+
+.tag-blog h1,
+.tag-blog h2,
+.tag-blog h3,
+.tag-blog h4,
+.tag-blog h5 {
   @apply font-sans;
 }
 
-.active-tag{
+.tag-cv h1,
+.tag-cv h2,
+.tag-cv h3,
+.tag-cv h4,
+.tag-cv h5 {
+  @apply font-sans;
+}
+
+.active-tag {
   @apply text-white;
   background-color: yellow;
 }
 
-a:hover{
+a:hover {
   font-style: oblique;
 }
 
@@ -112,9 +130,12 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
 }
+
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
   background: black;
@@ -125,9 +146,11 @@ html {
   background-color: white;
   z-index: 10;
 }
+
 .tag:hover {
   @apply bg-black text-white;
 }
+
 /*
 .home{
   background-image: url("../face.svg");
@@ -144,9 +167,9 @@ html {
   text-shadow: 0 0 3px black;
 }
 
-#size-ref{}
+#size-ref {}
 
-#nav-v{
+#nav-v {
   position: absolute;
   margin-right: -100%;
   transform: rotate(270deg) translate(0, 2rem);
@@ -154,7 +177,8 @@ html {
   width: 100vh;
   bottom: 1.8rem;
 }
-#postNavigation{
+
+#postNavigation {
   position: fixed;
   margin-left: 100%;
   transform: rotate(270deg);
@@ -163,8 +187,8 @@ html {
   background: white;
 }
 
-#site-main{
-  background-color: transparent!important;
+#site-main {
+  background-color: transparent !important;
 }
 
 .landscape {
@@ -172,67 +196,80 @@ html {
   object-fit: cover;
 }
 
-.portrait{
+.portrait {
   max-height: 100vh;
 }
 
-.blog-bottom-margin{
-  margin-bottom: calc(100vh - var(--size-ref-x) + 1.77rem );
+.blog-bottom-margin {
+  margin-bottom: calc(100vh - var(--size-ref-x) + 1.77rem);
 }
 
-#thumb-size{
+#thumb-size {
   height: calc(var(--size-ref-x)/2 + 1.73rem);
   min-height: 30vh;
-}/*
+}
+
+/*
 #thumb-size.about-img{
   height: calc(var(--size-ref-x) - 1.8rem + 2px);
 }*/
 
 .subpage {
-  flex: 0 0 100%; /* Besides on big screens */
-  min-width: 0; /* Ensure flexibility */
+  flex: 0 0 100%;
+  /* Besides on big screens */
+  min-width: 0;
+  /* Ensure flexibility */
 }
 
 @screen sm {
   html {
     font-size: 22px;
-  }}
+  }
+}
 
 @screen md {
+
   .subpage {
-    flex: 1; /* Underneath on smaller screens */
-}
-  .blog-bottom-margin{
-    margin-bottom: calc(100vh - var(--size-ref-x) + 1.71rem );
+    flex: 1;
+    /* Underneath on smaller screens */
   }
-  #thumb-size{
+
+  .blog-bottom-margin {
+    margin-bottom: calc(100vh - var(--size-ref-x) + 1.71rem);
+  }
+
+  #thumb-size {
     height: calc(var(--size-ref-x) - 1.8rem + 2px);
     min-height: 30vh;
   }
-  .landscape{
+
+  .landscape {
     max-height: calc(100vh - 1.8rem);
   }
-  .portrait{
+
+  .portrait {
     width: auto;
     max-height: calc(100vh - 1.8rem);
   }
 
-  .kg-width-wide > .portrait{
+  .kg-width-wide>.portrait {
     max-height: unset;
     height: 100%;
     @apply w-7/12 px-0 ml-[1.92rem];
   }
 
-  .kg-width-wide .hascaption, .kg-width-full .hascaption > .portrait{
+  .kg-width-wide .hascaption,
+  .kg-width-full .hascaption>.portrait {
     width: auto;
-    max-height:95vh;
+    max-height: 95vh;
   }
 
   .nav-current {
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 8px black;
   }
-  #postNavigation{
+
+  #postNavigation {
     position: fixed;
     transform: none;
     transform-origin: unset;
@@ -240,49 +277,54 @@ html {
     margin-left: 0;
   }
 
-  #hiding-parent .hidden-child{
+  #hiding-parent .hidden-child {
     overflow: hidden;
     opacity: 0;
     -webkit-transition: .35s;
-    -moz-transition:  .35s;
-    -ms-transition:  .35s;
-    -o-transition:  .35s;
-    transition:  .35s;
+    -moz-transition: .35s;
+    -ms-transition: .35s;
+    -o-transition: .35s;
+    transition: .35s;
     animation-timing-function: ease-out;
     max-height: 0;
     @apply max-h-0 mt-[-0.3rem];
   }
+
   /* #thumb-size{
      height: calc( 100vh - var(--size-ref-x) - 1.8rem);
    }*/
 }
 
 @screen xl {
-  #thumb-size{
+  #thumb-size {
     height: calc(var(--size-ref-x) + 3.5rem);
     min-height: 30vh;
   }
 }
 
 @media (orientation: landscape) {
-  #postNavigation{
+  #postNavigation {
     position: fixed;
     transform: none;
     transform-origin: unset;
     width: 100%;
     margin-left: 0;
   }
-  .gh-canvas{
+
+  .gh-canvas {
     width: 100% !important;
   }
-  .portrait{
+
+  .portrait {
     height: 100vh;
     width: auto;
   }
-  .landscape{
+
+  .landscape {
     max-height: calc(100vh - 1.8rem);
     width: auto;
   }
+
   /*#nav-p-items :last-child{
     border-left: none;
     flex-grow: 1;
@@ -294,25 +336,26 @@ html {
     margin:0;
   }*/
 }
-#nav-p-items :last-child{
+
+#nav-p-items :last-child {
   border-left: none;
   flex-grow: 1;
 }
-#nav-p-items :last-child h1{
+
+#nav-p-items :last-child h1 {
   text-align: right;
 }
 
-#nav-h-items :first-child{
+#nav-h-items :first-child {
   border-left: none;
   flex-grow: 1;
 }
-#nav-h-items :first-child h1{
+
+#nav-h-items :first-child h1 {
   text-align: left;
 }
 
-@media (orientation: portrait) {
-
-}
+@media (orientation: portrait) {}
 
 /*
 @screen lg {
@@ -333,9 +376,13 @@ html {
   h1 {
     @apply text-lg font-bold;
   }
-  h2, h3, h4 {
+
+  h2,
+  h3,
+  h4 {
     @apply text-lg font-bold uppercase;
   }
+
   /*h3 {
     @apply text-base font-bold;
   }*/
@@ -360,17 +407,22 @@ use it for applying any other styles. */
   @apply md:w-full;
 }
 
-.gh-canvas > * {
+.gh-canvas>* {
   grid-column: full-start / full-end;
 }
 
 .kg-width-wide {
   grid-column: full-start / full-end;
 }
-.kg-width-regular, .kg.width-wide {
+
+.kg-width-regular,
+.kg.width-wide {
   height: 100vh;
 }
-.kg-width-regular, .kg-width-wide,.kg-width-full {
+
+.kg-width-regular,
+.kg-width-wide,
+.kg-width-full {
   /*grid-column: full-start / full-end;*/
 }
 
@@ -382,47 +434,48 @@ created within the Ghost editor. The main content handles
 headings, text, images and lists. We deal with cards lower down. */
 
 /* Default vertical spacing */
-.gh-content > * + * {
+.gh-content>*+* {
   margin-top: 1rem;
   margin-bottom: 0;
 }
 
 /* [id] represents all headings h1-h6, reset all margins */
-.gh-content > [id] {
+.gh-content>[id] {
   @apply text-black font-sans leading-5 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
 }
 
-.gh-content > h3 {
+.gh-content>h3 {
   @apply text-[1rem] leading-5 mt-8;
 }
 
- .gh-content h2 + .gh-content h3 {
+.gh-content h2+.gh-content h3 {
   @apply mt-0;
 }
 
 /* Add back a top margin to all headings, unless a heading
 is the very first element in the post content */
-.gh-content > [id]:not(:first-child) {
+.gh-content>[id]:not(:first-child) {
   margin-top: 2rem;
 }
 
 /* Add a small margin between a heading and anything after it */
-.gh-content > [id] + * {
+.gh-content>[id]+* {
   margin-top: 0.25rem;
 }
 
-.gh-content > h2 + * {
-  margin-top: 1rem!important;
+.gh-content>h2+* {
+  margin-top: 1rem !important;
 }
 
 /* A larger margin before/after HRs and blockquotes */
-.gh-content > hr,
-.gh-content > blockquote {
+.gh-content>hr,
+.gh-content>blockquote {
   position: relative;
   margin-top: 6vmin;
 }
-.gh-content > hr + *,
-.gh-content > blockquote + * {
+
+.gh-content>hr+*,
+.gh-content>blockquote+* {
   margin-top: 6vmin !important;
 }
 
@@ -433,12 +486,12 @@ is the very first element in the post content */
   /*@apply text-base font-bold;*/
 }
 
-.gh-content > blockquote,
-.gh-content > ol,
-.gh-content > ul,
-.gh-content > dl,
-.gh-content > p,
-.gh-content > a{
+.gh-content>blockquote,
+.gh-content>ol,
+.gh-content>ul,
+.gh-content>dl,
+.gh-content>p,
+.gh-content>a {
   font-weight: 400;
   line-height: 1.25em;
   /* text-indent: 1rem;*/
@@ -446,20 +499,20 @@ is the very first element in the post content */
 }
 
 
-.gh-content > ul,
-.gh-content > ol,
-.gh-content > dl {
+.gh-content>ul,
+.gh-content>ol,
+.gh-content>dl {
   padding-left: 0.85em;
   list-style: initial;
 }
 
-.gh-content > blockquote {
+.gh-content>blockquote {
   position: relative;
   font-style: italic;
   padding: 0;
 }
 
-.gh-content > blockquote::before {
+.gh-content>blockquote::before {
   content: "";
   position: absolute;
   left: -1.5em;
@@ -468,7 +521,7 @@ is the very first element in the post content */
   width: 0.3rem;
 }
 
-.gh-content :not(pre) > code {
+.gh-content :not(pre)>code {
   vertical-align: middle;
   padding: 0.15em 0.4em 0.15em;
   border: #e1eaef 1px solid;
@@ -484,7 +537,7 @@ is the very first element in the post content */
   padding: 16px 20px;
   @apply bg-gray-800 text-gray-200 text-base rounded;
   line-height: 1.25em;
-  box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, .1), 0 0 1px rgba(0, 0, 0, .4);
 }
 
 @media (max-width: 650px) {
@@ -503,11 +556,12 @@ make sure they look good, and are given a bit of extra spacing. */
 
 /* Add extra margin before/after any cards,
 except for when immediately preceeded by a heading */
-.gh-content :not(.kg-card):not([id]) + .kg-card {
+.gh-content :not(.kg-card):not([id])+.kg-card {
   margin-top: 1rem;
   margin-bottom: 0;
 }
-.gh-content .kg-card + :not(.kg-card) {
+
+.gh-content .kg-card+ :not(.kg-card) {
   margin-top: 1rem;
   margin-bottom: 0;
 }
@@ -520,7 +574,7 @@ except for when immediately preceeded by a heading */
   width: 100%;
 }
 
-.kg-image-card{
+.kg-image-card {
   display: flex;
   justify-content: flex-start;
 }
@@ -533,41 +587,48 @@ except for when immediately preceeded by a heading */
 }
 
 
-.post-card-image{
+.post-card-image {
   filter: grayscale(1);
-  transition-timing-function:ease;
+  transition-timing-function: ease;
   transition-duration: 400ms;
 }
 
-.post-card-image-link:hover .post-card-image{
-filter: none;
-transition-timing-function:ease;
-transition-duration: 400ms;
+.post-card-image-link:hover .post-card-image {
+  filter: none;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
 }
 
 
 /* File Cards
 /* ---------------------------------------------------------- */
-.kg-file-card, .kg-file-card a.kg-file-card-container, a.kg-file-card-container{
-  border: 0 transparent!important;
-  padding: 0!important;
+.kg-file-card,
+.kg-file-card a.kg-file-card-container,
+a.kg-file-card-container {
+  border: 0 transparent !important;
+  padding: 0 !important;
 }
-.kg-file-card-contents{
+
+.kg-file-card-contents {
   @apply md:ml-9 ml-4 justify-start;
 }
-.kg-file-card-title{
+
+.kg-file-card-title {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   @apply leading-4 font-sans;
 }
-.kg-file-card-caption{}
-.kg-file-card-filename{
+
+.kg-file-card-caption {}
+
+.kg-file-card-filename {
   font-size: 1rem;
   font-weight: 400;
   text-decoration: underline black;
 }
-.kg-file-card-icon{
+
+.kg-file-card-icon {
   display: none;
 }
 
@@ -576,6 +637,7 @@ transition-duration: 400ms;
   content: "–";
   margin-right: 0.325rem;
 }
+
 .kg-file-card-filesize {
   display: inline-block;
   font-size: 1rem;
@@ -616,11 +678,11 @@ iframe.instagram-media {
   margin-bottom: 0 !important;
 }
 
-iframe.instagram-media + script + :not([id]) {
+iframe.instagram-media+script+ :not([id]) {
   margin-top: 6vmin;
 }
 
-iframe{
+iframe {
   width: 100%;
   max-height: calc(100vh - 1.8rem);
   @apply md:h-[100vh];
@@ -633,15 +695,15 @@ iframe{
 
 /* When there galleries are mixed with images, reduce margin
 between them, so it looks like 1 big gallery */
-.kg-image-card + .kg-gallery-card,
-.kg-gallery-card + .kg-image-card,
-.kg-gallery-card + .kg-gallery-card {
+.kg-image-card+.kg-gallery-card,
+.kg-gallery-card+.kg-image-card,
+.kg-gallery-card+.kg-gallery-card {
   margin-top: 0.75em;
 }
 
-.kg-image-card.kg-card-hascaption + .kg-gallery-card,
-.kg-gallery-card.kg-card-hascaption + .kg-image-card,
-.kg-gallery-card.kg-card-hascaption + .kg-gallery-card {
+.kg-image-card.kg-card-hascaption+.kg-gallery-card,
+.kg-gallery-card.kg-card-hascaption+.kg-image-card,
+.kg-gallery-card.kg-card-hascaption+.kg-gallery-card {
   margin-top: 1.75em;
 }
 
@@ -735,7 +797,7 @@ Ghost editor. */
   white-space: nowrap;
 }
 
-.kg-bookmark-metadata > *:not(img) {
+.kg-bookmark-metadata>*:not(img) {
   opacity: 0.7;
 }
 
@@ -759,16 +821,16 @@ Ghost editor. */
   line-height: 1.65em;
 }
 
-.kg-bookmark-metadata > span:nth-of-type(2) {
+.kg-bookmark-metadata>span:nth-of-type(2) {
   font-weight: 400;
 }
 
-.kg-bookmark-metadata > span:nth-of-type(2):before {
+.kg-bookmark-metadata>span:nth-of-type(2):before {
   content: "•";
   margin: 0 6px;
 }
 
-.kg-bookmark-metadata > span:last-of-type {
+.kg-bookmark-metadata>span:last-of-type {
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -793,7 +855,7 @@ Ghost editor. */
 /* Card captions
 /* ---------------------------------------------------------- */
 
-.kg-card-hascaption{
+.kg-card-hascaption {
   display: flex;
   flex-direction: column;
   grid-template-columns: inherit;
@@ -861,13 +923,13 @@ Ghost editor. */
 }
 
 .post-full-content table td:first-child {
-  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
   background-size: 20px 100%;
   background-repeat: no-repeat;
 }
 
 .post-full-content table td:last-child {
-  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
   background-position: 100% 0;
   background-size: 20px 100%;
   background-repeat: no-repeat;
