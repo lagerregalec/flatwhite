@@ -46,26 +46,26 @@
     <!-- Include Intersection Observer polyfill for better browser support -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
 
-    <!-- Initialize custom script for container-based scrolling -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const scrollableContainers = document.querySelectorAll('.scrollableContainer');
-            const elementsToAnimate = document.querySelectorAll('.aos-element');
+   document.addEventListener('DOMContentLoaded', function () {
+    const scrollableContainers = document.querySelectorAll('.scrollableContainer');
+    const elementsToAnimate = document.querySelectorAll('.aos-element');
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('aos-animate');
-                    }
-                });
-            }, { threshold: 0.01 }); // Adjust threshold as needed
-
-            scrollableContainers.forEach(container => {
-                elementsToAnimate.forEach(element => {
-                    observer.observe(element);
-                });
-            });
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+            }
         });
+    }, { threshold: 0.0 }); // Adjust threshold as needed
+
+    scrollableContainers.forEach(container => {
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    });
+});
+
     </script>
 </body>
 
