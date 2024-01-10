@@ -205,8 +205,8 @@ html {
 }
 
 #thumb-size {
-  height: calc(var(--size-ref-x)/2 + 1.73rem);
-  min-height: 30vh;
+  /*height: calc(var(--size-ref-x)/2 + 1.73rem);*/
+  height: 33vh;
 }
 
 /*
@@ -239,8 +239,7 @@ html {
   }
 
   #thumb-size {
-    height: calc(var(--size-ref-x) - 1.8rem + 2px);
-    min-height: 30vh;
+    height: 62vh;
   }
 
   .landscape {
@@ -296,10 +295,10 @@ html {
 }
 
 @screen xl {
-  #thumb-size {
+ /* #thumb-size {
     height: calc(var(--size-ref-x) + 3.5rem);
     min-height: 30vh;
-  }
+  }*/
 }
 
 @media (orientation: landscape) {
