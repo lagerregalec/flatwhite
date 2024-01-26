@@ -10,6 +10,7 @@ import './index.hbs';
 import './portfolio.hbs';
 import './post.hbs';
 import './page-about.hbs';
+import './cv.hbs';
 
 
 /*

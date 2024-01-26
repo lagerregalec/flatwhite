@@ -24,6 +24,10 @@
   @apply right-1/3 mt-4;
 }
 
+#site-main{
+@apply mr-[1.8rem] md:mr-[2.5rem];
+}
+
 #hiding-parent {}
 
 #hiding-parent .hidden-child {
@@ -147,6 +151,10 @@ html {
   z-index: 10;
 }
 
+a[title="Highlight"]{
+  background-color: yellow;
+}
+
 .tag:hover {
   @apply bg-black text-white;
 }
@@ -175,7 +183,6 @@ html {
   transform: rotate(270deg) translate(0, 2rem);
   transform-origin: left bottom;
   width: 100vh;
-  bottom: 1.8rem;
 }
 
 #postNavigation {
@@ -254,7 +261,7 @@ html {
   .kg-width-wide>.portrait {
     max-height: unset;
     height: 100%;
-    @apply w-7/12 px-0 ml-[1.92rem];
+    @apply lg:w-6/12 px-0;
   }
 
   .kg-width-wide .hascaption,
@@ -373,7 +380,7 @@ html {
  */
 @layer base {
   h1 {
-    @apply text-lg font-bold;
+    @apply text-xl font-bold;
   }
 
   h2,
@@ -440,7 +447,11 @@ headings, text, images and lists. We deal with cards lower down. */
 
 /* [id] represents all headings h1-h6, reset all margins */
 .gh-content>[id] {
-  @apply text-black font-sans leading-5 mt-8 md:ml-9 ml-4 md:mr-32 mr-8;
+  @apply text-black font-sans mt-8 md:ml-9 lg:w-5/12 ml-4 md:mr-32 mr-8;
+}
+
+.gh-content>h2 {
+  @apply leading-7;
 }
 
 .gh-content>h3 {
@@ -460,10 +471,6 @@ is the very first element in the post content */
 /* Add a small margin between a heading and anything after it */
 .gh-content>[id]+* {
   margin-top: 0.25rem;
-}
-
-.gh-content>h2+* {
-  margin-top: 1rem !important;
 }
 
 /* A larger margin before/after HRs and blockquotes */
@@ -494,7 +501,7 @@ is the very first element in the post content */
   font-weight: 400;
   line-height: 1.25em;
   /* text-indent: 1rem;*/
-  @apply md:ml-9 ml-4 md:mr-64 mr-6 mt-4;
+  @apply md:ml-9 ml-4 lg:w-5/12 mr-6 mt-4;
 }
 
 
@@ -545,6 +552,10 @@ is the very first element in the post content */
   }
 }
 
+.video{
+  max-height: 100vh;
+}
+
 /* Cards
 /* ---------------------------------------------------------- */
 
@@ -568,9 +579,7 @@ except for when immediately preceeded by a heading */
 /* This keeps small embeds centered */
 .kg-embed-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  justify-content: flex-start;
 }
 
 .kg-image-card {
@@ -579,15 +588,16 @@ except for when immediately preceeded by a heading */
 }
 
 /* This keeps small iamges centered */
-.kg-image-card img {
+.kg-image-card img, .kg-video-card video {
   margin: 6rem 0 0.5rem 0;
   object-fit: contain;
-  @apply md:px-[1.92rem];
+
+  @apply flex lg:w-6/12 md:h-auto px-0;
 }
 
 
 .post-card-image {
-  filter: grayscale(1);
+  @apply md:grayscale;
   transition-timing-function: ease;
   transition-duration: 400ms;
 }
@@ -598,6 +608,8 @@ except for when immediately preceeded by a heading */
   transition-duration: 400ms;
 }
 
+.kg-video-card video{
+}
 
 /* File Cards
 /* ---------------------------------------------------------- */
@@ -664,9 +676,10 @@ a.kg-file-card-container {
 /* Captions */
 figcaption {
   font-weight: 400;
-  line-height: 1.25em;
+  font-size: 0.5rem;
+  line-height: 0.65rem;
   /* text-indent: 1rem;*/
-  @apply md:ml-9 ml-4 mr-6 mt-4 inline align-bottom;
+  @apply md:ml-9 ml-4 mr-6 mt-0 md:mt-4 inline align-bottom;
 }
 
 /* Highly specific styles for traditional Instagram embeds */
@@ -682,9 +695,7 @@ iframe.instagram-media+script+ :not([id]) {
 }
 
 iframe {
-  width: 100%;
-  max-height: calc(100vh - 1.8rem);
-  @apply md:h-[100vh];
+  @apply lg:w-6/12 w-full;
 }
 
 
@@ -703,7 +714,7 @@ between them, so it looks like 1 big gallery */
 .kg-image-card.kg-card-hascaption+.kg-gallery-card,
 .kg-gallery-card.kg-card-hascaption+.kg-image-card,
 .kg-gallery-card.kg-card-hascaption+.kg-gallery-card {
-  margin-top: 1.75em;
+  
 }
 
 .kg-gallery-container {
@@ -858,12 +869,11 @@ Ghost editor. */
   display: flex;
   flex-direction: column;
   grid-template-columns: inherit;
-  @apply md:flex-row align-bottom;
+  @apply lg:flex-row align-bottom;
 }
 
-.kg-card-hascaption img {
-  grid-column: 1 / -1;
-  @apply md:ml-[1.92rem] md:w-7/12 md:h-auto px-0;
+.kg-card-hascaption img, .kg-video-container {
+  @apply lg:w-6/12 md:h-auto px-0;
 }
 
 .kg-card-hascaption figcaption {
@@ -872,6 +882,7 @@ Ghost editor. */
   justify-content: flex-end;
   margin-bottom: 0.5rem;
 
+  @apply lg:w-2/12;
 }
 
 .article-comments {

@@ -66,7 +66,7 @@
                                         </ul>
                                         {{/if}}
                                     </div>--}}
-                                    <a href="{{url}}">
+                                    <a href="{{url}}" id="hiding-parent">
                                         <h2 class="flex flex-col justify-end  uppercase font-bold  px-2 py-1 font-sans border-black border-b md:border-b-2 border-t md:border-t-2"
                                             style="background: yellow;">
                                             {{title}}
@@ -231,7 +231,7 @@
                                             data-aos-duration="1200">EXPERIENCE</h2>
                                     </div>
                                     {{!-- Iterate through each posts --}}
-                                    {{#get "posts" filter="tags:[Experience]"}}
+                                    {{#get "posts" filter="tags:[experience]"}}
                                     {{#foreach posts}}
                                     <article
                                         class="{{post_class}} relative aos-element border-b md:border-b-2 border-black">

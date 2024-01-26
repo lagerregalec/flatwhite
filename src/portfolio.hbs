@@ -11,7 +11,7 @@
 
   {{!-- The main content area --}}
   <main id="site-main">
-    <div class="mr-[1.8rem]">
+    <div class="">
       <!--div class="vh-2-3 flex justify-center items-center text-6xl text-center font-semibold">
       {{@site.description}}
     </div-->
@@ -52,8 +52,19 @@
 
         <div id="right-container"
           class="fade-out scrollableContainer md:box-border md:overflow-y-auto md:h-[100vh] min-w-0 w-full md:w-1/2 flex-none md:flex-1">
-          {{#foreach posts}}
 
+           {{!-- <div class="section-title border-b md:border-b-2 border-black hidden md:flex md:flex-row">
+              <div id="arrow-wrapper" class="flex items-center justify-center px-1 py-[0.4rem] d-inline-block">
+                <div class="w-[1.4rem]">
+                  <svg class="rotate-[270deg]" height="100%" viewBox="0 0 57 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.5 0L0 23.5L21.5 47L28 41L16 28H57V19H16L28 6L21.5 0Z" fill="black" />
+                  </svg>
+                </div>
+              </div>
+              <h1 class=" py-1 text-lg uppercase aos-element">Highlights</h1>
+            </div>--}}
+
+          {{#foreach posts}}
           {{#has tag="highlight"}}
           <article href="{{url}}" id="thumb-size"
             class="{{post_class}} aos-element h-[33vh] intersectionObserved relative overflow-hidden bg-black border-bottom border-black md:h-[66vh]"
@@ -88,7 +99,7 @@
   </main>
 
   <style>
-    #left-container #thumbsize{
+    #left-container #thumbsize {
       height: 33vh;
     }
   </style>

@@ -1,12 +1,12 @@
 {{!< default}} {{!-- The tag above means: insert everything in this file into the {body} tag of the default.hbs template
   --}} {{#post}} {{!-- Everything inside the #post block pulls data from the post --}} <nav id="postNavigation"
-  class="fixed md:left-0 bottom-0 md:right-0 h-[2rem] sm:h-[1.9rem] 2xl:h-[1.8rem] w-full overscroll-none bg-white z-50">
+  class="fixed lg:left-0 bottom-0 lg:right-0 h-[2rem] sm:h-[1.9rem] lg:h-[2.75rem] w-full overscroll-none bg-white z-50">
   <div id="nav-p" class="fixed w-full flex flex-row justify-end">
     <ul id="nav-p-items" class="flex flex-row justify-start no-underline list-none m-0 p-0 w-full">
-      <li class="border border-black md:border-2 md:mr-[-2px] md:ml-[-2px] mr-[-1px] mb-[-1px] ml-[-1px] uppercase">
+      <li class="border border-black lg:border-2 lg:mr-[-2px] lg:ml-[-2px] mr-[-1px] mb-[-1px] ml-[-1px] uppercase">
         <a id="back-button" class="h-full w-full">
           <div id="arrow-wrapper" class="flex items-center justify-center h-full px-1 py-[0.4rem] d-inline-block">
-            <div class="w-[1.4rem] mt-[-1px] md:mt-[-2px]">
+            <div class="w-[1.4rem] lg:w-[2.1rem] mt-[-1px] lg:mt-[-2px]">
               <svg height="100%" viewBox="0 0 57 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.5 0L0 23.5L21.5 47L28 41L16 28H57V19H16L28 6L21.5 0Z" fill="black" />
               </svg>
@@ -14,13 +14,13 @@
           </div>
         </a>
       </li>
-      <li class="px-1 py-0.5 border border-black md:border-2 md:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
-        <h1 class="uppercase text-lg font-bold leading-none">
+      <li class="px-1 py-0.5 border border-black lg:border-2 lg:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
+        <h1 class="uppercase text-lg lg:text-xl font-bold leading-none">
           {{date published_at format="YYYY"}}
         </h1>
       </li>
-      <li class="px-1 py-0.5 border border-black md:border-2 md:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
-        <h1 class="uppercase text-lg font-bold leading-none whitespace-nowrap">
+      <li class="px-1 py-0.5 border border-black lg:border-2 lg:mr-[-2px] mr-[-1px] mb-[-1px] uppercase">
+        <h1 class="uppercase text-lg lg:text-xl font-bold leading-none whitespace-nowrap">
           {{title}}
         </h1>
       </li>
@@ -28,13 +28,13 @@
   </div>
   </nav>
 
-  <article class="article {{post_class}} {{#has tag=" #portfolio"}}font-sans{{else}}font-serif{{/has}} md:mb-16 ml-0
+  <article class="article {{post_class}} {{#has tag="blog"}}font-serif{{else}}font-sans{{/has}} lg:mb-16 ml-0
     mb-0 flex flex-col rot-180">
 
     <header class="article-header gh-canvas">
 
       {{#if feature_image}}
-      <figure class="article-image kg-width-full flex flex-row">
+      <figure class="article-image kg-width-full flex flex-row lg:absolute lg:right-0 lg:top-0 lg:w-6/12 lg:h-full">
         {{!-- This is a responsive image, it loads different sizes depending on device
         https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
         <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w, {{img_url
@@ -72,11 +72,12 @@
       --}}
     </header>
 
-    <section class="gh-content gh-canvas mt-8 rotate-0">
+    <section class="gh-content gh-canvas rotate-0">
+      <div class="absolut mt-6 left-0 top-0 w-full lg:w-5/12 border-black border-r-2"></div>
       {{content}}
     </section>
 
-    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-[1.975rem] md:pr-[1.92rem] pr-16 mb-9">
+    <section class="gh-content mt-16 justify-between flex flex-row w-full pl-[1.975rem] lg:pr-[1.92rem] pr-16 mb-9">
       <div class="m-0 flex flex-col justify-start !mt-0">
         {{#next_post in="primary_tag"}}
         <a href="{{url}}" class="tag !text-base no-underline-important uppercase font-sans">Prev</a>
@@ -145,5 +146,20 @@
       window.addEventListener('load', addImageClasses);
 
     </script>
+
+    <style>
+ @media screen and (min-width:1024px) {
+.gh-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(50% + 2px);
+  height: 100%;
+  box-sizing: border-box;
+  border-right: 2px solid rgb(0, 0, 0); /* Adjust the border properties as needed */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
+    </style>
   </article>
   {{/post}}
